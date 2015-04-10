@@ -3,20 +3,13 @@ title: about
 layout: page
 ---
 
-a
 
 > Minimalist | Appleist | Unixer | Coder
 
-who involved in 
+You can find me at:
 
-> [github](https://github.com/waynezhang)
+> [github](https://github.com/liuy12)
 
-mail 
+mail:
 
-> echo srvpqxfbyqfvpdtkbjwt | tr yxwvtsrqpkjfdb zuonmlihgeca@.
-
-or follow 
-
-> [@o_lll](https://twitter.com/#!/o_lll)
-
-to reach me
+> yuanhangliu.ok@gmail.com
