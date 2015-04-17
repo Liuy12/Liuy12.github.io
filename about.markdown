@@ -8,7 +8,7 @@ layout: page
 
 You can find me at:
 
-> [github](https://github.com/liuy12)
+> [github](https://github.com/liuy12), [linkedin](https://www.linkedin.com/profile/view?id=284101161&trk=nav_responsive_tab_profile), [instagram](https://instagram.com/beckhamok/)
 
 mail:
 
