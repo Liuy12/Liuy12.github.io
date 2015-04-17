@@ -1,5 +1,6 @@
 ---
 title: '第一篇'
+comments: true
 layout: post
 tags:
     - Start
