@@ -1,5 +1,5 @@
 ---
-title: 果然是ALS fashion
+title: '果然是ALS fashion'
 comments: true
 layout: post
 tags:
