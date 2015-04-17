@@ -1,5 +1,5 @@
 ---
-title: '第一篇'
+title: 果然是ALS fashion
 comments: true
 layout: post
 tags:
