@@ -1,8 +1,8 @@
-markdown: rdiscount
+markdown: kramdown
 highlighter: pygments
 permalink: /:year/:month/:day/:title.html
 name: "Takes time to be twisted, or not"
-markdown: rdiscount
+markdown: kramdown
 
 author: "Yuanhang Liu"
 disqus: "gopherwood"
