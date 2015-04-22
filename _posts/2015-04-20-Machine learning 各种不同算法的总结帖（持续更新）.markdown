@@ -11,7 +11,8 @@ tags:
 
 转眼间接触machine learning 已经半年多了， 现在开一个帖子写写关于不同machine learning 算法的总结帖。
 
-＃ Random forest
+Random forest
+=============
 
 Random forest 是基于decision tree的一种方法，简单的来说就是创建 a multitude of decision trees. 先bootstrap training data， 然后对每一个bootstrap， 创建一个decision tree。为了解决tree 与 tree之间可能有的correlation的问题，在每一个resampling的data上，仅仅只使用原始feature的一部分。在R上的这个可以用来tune的parameter是 mtry， classification 的problem default是 \\( \sqrt{f} \\). Regression 的 default 是 \\( \frac{f}{3} \\). 
 
