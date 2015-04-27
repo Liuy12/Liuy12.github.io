@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+ 
+ <title>Takes time to be twisted, or not</title>
+ <link href="/atom.xml" rel="self"/>
+ <link href=""/>
+ <updated>2015-04-23T18:31:47-05:00</updated>
+ <id></id>
+ <author>
+   <name>Yuanhang Liu</name>
+ </author>
+
+ 
+ <entry>
+   <title>Time series analysis and its applications</title>
+   <link href="/2015/04/22/Time%20series%20analysis%20and%20its%20applications.html"/>
+   <updated>2015-04-22T00:00:00-05:00</updated>
+   <id>/2015/04/22/Time series analysis and its applications</id>
+   <content type="html">&lt;p&gt;开一篇文章总结time series 相关领域的信息（常用模型， 基本概念等）。 主要是两本书的总结， 第一本是， Shumway的 Time series analysis and its applications. 第二本是Chatfield的 The analysis of Time Series: An introduction.&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;White Noise, a collection of uncorrelated random variables, &lt;script type=&quot;math/tex&quot;&gt;w_t \sim wn(0, \sigma_w^2)&lt;/script&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Moving averages, average with intermediate neighbors in the past and future&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+</content>
+ </entry>
+ 
+ <entry>
+   <title>拜仁大胜逆转晋级</title>
+   <link href="/2015/04/21/%E6%8B%9C%E4%BB%81%E5%A4%A7%E8%83%9C%E9%80%86%E8%BD%AC%E6%99%8B%E7%BA%A7.html"/>
+   <updated>2015-04-21T00:00:00-05:00</updated>
+   <id>/2015/04/21/拜仁大胜逆转晋级</id>
+   <content type="html">&lt;p&gt;这算是这个赛季最为让我紧张的比赛了， 赛前各种不利的消息，长长的伤病名单， 医疗团队集体辞职， 瓜吊跟神医的矛盾。。。赛前赔率各种不看好， 这种情况下以为比赛会非常艰难，甚至难以晋级， 没想到瓜帅这场比赛一开始就把节奏拉的非常快， 而且博阿滕的向前场直接输送炮弹令人眼前一亮，大家的心很齐，斗志昂扬。当低压锅进了第一个进球的时候，我就预感到了这会是一场大胜，但没想到居然上半场就把波尔图给打花了。最终jb跟龙哥各自打进一球完成救赎，丹特也替补上场（定时炸弹还是早点转会吧）。&lt;/p&gt;
+
+&lt;p&gt;这个赛季我已经非常满足了， 逆转晋级四强是一个礼物。联赛冠军应该没有啥悬念了， 杯赛冠军希望能拿下，欧冠尽力就好。等到4月底，伤病应该就都能够回归了， 赛季到了最为关键的阶段， 加油，小破仁！&lt;/p&gt;
+
+</content>
+ </entry>
+ 
+ <entry>
+   <title>各种不同算法的总结帖（持续更新）</title>
+   <link href="/2015/04/20/Machine%20learning%20%E5%90%84%E7%A7%8D%E4%B8%8D%E5%90%8C%E7%AE%97%E6%B3%95%E7%9A%84%E6%80%BB%E7%BB%93%E5%B8%96%EF%BC%88%E6%8C%81%E7%BB%AD%E6%9B%B4%E6%96%B0%EF%BC%89.html"/>
+   <updated>2015-04-20T00:00:00-05:00</updated>
+   <id>/2015/04/20/Machine learning 各种不同算法的总结帖（持续更新）</id>
+   <content type="html">&lt;p&gt;转眼间接触machine learning 已经半年多了， 现在开一个帖子写写关于不同machine learning 算法的总结帖。&lt;/p&gt;
+
+&lt;h1 id=&quot;random-forest&quot;&gt;Random forest&lt;/h1&gt;
+
+&lt;p&gt;Random forest 是基于decision tree的一种方法，简单的来说就是创建 a multitude of decision trees. 先bootstrap training data， 然后对每一个bootstrap， 创建一个decision tree。为了解决tree 与 tree之间可能有的correlation的问题，在每一个resampling的data上，仅仅只使用原始feature的一部分。在R上的这个可以用来tune的parameter是 mtry， classification 的problem default是 \( \sqrt{f} \). Regression 的 default 是 \( \frac{f}{3} \).&lt;/p&gt;
+
+&lt;p&gt;Random forest 的 error rate 取决于两个方面，&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;树与树之间的correlation， correlation越大，error也越大&lt;/li&gt;
+  &lt;li&gt;每一个树的predictive power， predictive power 越强， error 越小&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;以上两点都会随着mtry的增大而增大，减小而减少。所以会存在一个中间的optimal number 可以 tune for。&lt;/p&gt;
+
+&lt;p&gt;Random forest的一些特征&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Random forest 可以用来estimate variable importance（to be added）&lt;/li&gt;
+  &lt;li&gt;unexcelled in accuracy&lt;/li&gt;
+  &lt;li&gt;可以用来estimate missing values (to be added)&lt;/li&gt;
+  &lt;li&gt;Compute proximities between classes, 可以用来做cluster， outlier detection&lt;/li&gt;
+  &lt;li&gt;
+    &lt;h2 id=&quot;section&quot;&gt;-&lt;/h2&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+</content>
+ </entry>
+ 
+ <entry>
+   <title>Elements of statistical learning且读且感</title>
+   <link href="/2015/04/18/Elements%20of%20statistical%20learning%E4%B8%94%E8%AF%BB%E4%B8%94%E6%84%9F.html"/>
+   <updated>2015-04-18T00:00:00-05:00</updated>
+   <id>/2015/04/18/Elements of statistical learning且读且感</id>
+   <content type="html">
+</content>
+ </entry>
+ 
+ <entry>
+   <title>果然是ALS fashion</title>
+   <link href="/2015/04/17/%E6%9E%9C%E7%84%B6%E6%98%AFALS%20fashion.html"/>
+   <updated>2015-04-17T00:00:00-05:00</updated>
+   <id>/2015/04/17/果然是ALS fashion</id>
+   <content type="html">&lt;p&gt;最近读了一篇nature biotechnology的paper，title是’Crowdsourced analysis of clinical trial data to predict amyotrophic sclerosis progression’. 最开始读这篇文章是抱着主办者网站上说的1 million prize去的，没想到居然被坑，最后发现其实也只有区区5万。&lt;/p&gt;
+
+&lt;p&gt;抱着失落的心情读完文章之后就更失望了。 首先， 他们所谓的clinical feature的data其实是不包括genetic oriented measurements，像gene expression, cnv 等等。 其次， 所有团队用的方法都比较传统（BART的方法可能新一点， 值得一看），基本都是random forest的变体。而且，参赛team只少简直令人发指！（最后仅仅10人提交了有效的code），想想都还不如放在kaggle上去host。 看过文章之后，总体来讲有那么些疑问：&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;用前3个月的clinical feature去predict后9个月的progression，这个system design到底有没有问题（比如说input的时候，有些patient可能已经在fast progression阶段，或者已经完成fast progression 的过程， 对于这些patients，似乎没有必要加入到training model里面）&lt;/li&gt;
+  &lt;li&gt;我还是不太明白他的linear random effects model 是怎么work的（回头看看他的code）&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;如果能找到关于ALS的gene expression的time course data就太好了！&lt;/p&gt;
+</content>
+ </entry>
+ 
+ <entry>
+   <title>第一篇</title>
+   <link href="/2015/04/10/%E7%AC%AC%E4%B8%80%E7%AF%87.html"/>
+   <updated>2015-04-10T00:00:00-05:00</updated>
+   <id>/2015/04/10/第一篇</id>
+   <content type="html">&lt;p&gt;拿着从&lt;a href=&quot;http://lhzhang.com/&quot;&gt;Linghua Zhang&lt;/a&gt;同学那里偷来的模版，也算是有了一个正式的开始。上次写blog还是高中的事情了，想想那个时候还是狂热的喜欢westlife真是不得不感慨How time flies。Anyway, good to be back!&lt;/p&gt;
+</content>
+ </entry>
+ 
+ 
+</feed>

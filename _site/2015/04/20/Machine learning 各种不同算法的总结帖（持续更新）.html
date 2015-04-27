@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
+  <head>
+    <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <meta name="author" content="Yuanhang Liu" />
+    
+    <title>各种不同算法的总结帖（持续更新）</title>
+    
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link href="/atom.xml" rel="alternate" title="Takes time to be twisted, or not" type="application/atom+xml" />
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.2.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/media/css/style.css">
+    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/retina.js/1.3.0/retina.min.js"></script>
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/styles/github.min.css">
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/highlight.min.js"></script>
+    <script type="text/javascript"> hljs.initHighlightingOnLoad(); </script>
+  </head>
+  <body>
+      <div id="main" role="main">
+        <header>
+          <div id="header">
+            <h1><a title="Takes time to be twisted, or not" class="" href="/">Takes time to be twisted, or not</a></h1>
+          </div>
+          <nav>
+            
+            <span><a title="Archive" href="/archive.html"><i class="fa fa-list-ul"></i></a></span>
+            
+            <span><a title="Tags" href="/tags.html"><i class="fa fa-tags"></i></a></span>
+            
+            <span><a title="About" href="/about.html"><i class="fa fa-user"></i></a></span>
+            
+          </nav>
+        </header>
+        <div id="content">
+        <article>
+  <section class="title">
+    <h2>各种不同算法的总结帖（持续更新） </h2>
+  </section>
+  <section class="meta">
+  <span class="time">
+    <time datetime="2015-04-20">2015-04-20</time>
+  </span>
+  
+  <span class="tags">
+    
+    <a href="/tags.html#machine learning" title="machine learning">#machine learning</a>
+    
+    <a href="/tags.html#random forest" title="random forest">#random forest</a>
+    
+    <a href="/tags.html#gradient boosting machine" title="gradient boosting machine">#gradient boosting machine</a>
+    
+    <a href="/tags.html#support vector machine" title="support vector machine">#support vector machine</a>
+    
+  </span>
+  
+  </section>
+  <section class="post">
+  <p>转眼间接触machine learning 已经半年多了， 现在开一个帖子写写关于不同machine learning 算法的总结帖。</p>
+
+<h1 id="random-forest">Random forest</h1>
+
+<p>Random forest 是基于decision tree的一种方法，简单的来说就是创建 a multitude of decision trees. 先bootstrap training data， 然后对每一个bootstrap， 创建一个decision tree。为了解决tree 与 tree之间可能有的correlation的问题，在每一个resampling的data上，仅仅只使用原始feature的一部分。在R上的这个可以用来tune的parameter是 mtry， classification 的problem default是 \( \sqrt{f} \). Regression 的 default 是 \( \frac{f}{3} \).</p>
+
+<p>Random forest 的 error rate 取决于两个方面，</p>
+
+<ul>
+  <li>树与树之间的correlation， correlation越大，error也越大</li>
+  <li>每一个树的predictive power， predictive power 越强， error 越小</li>
+</ul>
+
+<p>以上两点都会随着mtry的增大而增大，减小而减少。所以会存在一个中间的optimal number 可以 tune for。</p>
+
+<p>Random forest的一些特征</p>
+
+<ul>
+  <li>Random forest 可以用来estimate variable importance（to be added）</li>
+  <li>unexcelled in accuracy</li>
+  <li>可以用来estimate missing values (to be added)</li>
+  <li>Compute proximities between classes, 可以用来做cluster， outlier detection</li>
+  <li>
+    <h2 id="section">-</h2>
+  </li>
+</ul>
+
+
+  </section>
+  
+</article>
+
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+    /* * * CONFIGURATION VARIABLES * * */
+    // Required: on line below, replace text in quotes with your forum shortname
+    var disqus_shortname = 'personalblogliuy';
+    
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+
+
+        </div>
+        <footer>
+          <div>
+            
+            &copy; 2015 ~ 2015 Yuanhang Liu | powered by jekyll | themed by <a href="http://lhzhang.com" title="sext vi">sext vi</a> | fork <a href="https://github.com/waynezhang/blog" title="fork me">me</a>
+          </div>
+        </footer>
+      </div> <!-- main -->
+  </body>
+</html>
