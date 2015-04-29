@@ -11,8 +11,11 @@ tags:
 
 - White Noise, a collection of uncorrelated random variables, $$ w_t \sim wn(0, \sigma_w^2) $$
 
-- Moving averages, average with intermediate neighbors in the past and future
+- Moving averages, average with intermediate neighbors in the past and future， $$ v_t = \frac{1}{3}(w_{t-1} + w_t + w_{t+1}) $$
 
+- Auto regression, $$ x_t = ax_{t-1} + bx_{t-2} + w_t $$
+
+- Random walk with drift, $$ x_t = \sigma + x_{t-1} + w_t $$, where $$ \sigma $$ is called the drift 
 
 
 
