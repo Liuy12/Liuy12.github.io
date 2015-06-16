@@ -4,12 +4,21 @@
  <title>Takes time to be twisted, or not</title>
  <link href="/atom.xml" rel="self"/>
  <link href=""/>
- <updated>2015-04-23T18:31:47-05:00</updated>
+ <updated>2015-05-07T16:45:03-05:00</updated>
  <id></id>
  <author>
    <name>Yuanhang Liu</name>
  </author>
 
+ 
+ <entry>
+   <title>那些所谓的得不到的东西</title>
+   <link href="/2015/04/29/%E6%9C%89%E4%BA%9B%E4%B8%9C%E8%A5%BF%E4%BD%A0%E5%BE%97%E4%B8%8D%E5%88%B0.html"/>
+   <updated>2015-04-29T00:00:00-05:00</updated>
+   <id>/2015/04/29/有些东西你得不到</id>
+   <content type="html">&lt;p&gt;那些所谓的得不到的东西， 有些许无奈， 些许安慰， 归其原因， 不过于是自己的内心不够强大， 终究是对它不够渴望。&lt;/p&gt;
+</content>
+ </entry>
  
  <entry>
    <title>Time series analysis and its applications</title>
@@ -23,7 +32,13 @@
     &lt;p&gt;White Noise, a collection of uncorrelated random variables, &lt;script type=&quot;math/tex&quot;&gt;w_t \sim wn(0, \sigma_w^2)&lt;/script&gt;&lt;/p&gt;
   &lt;/li&gt;
   &lt;li&gt;
-    &lt;p&gt;Moving averages, average with intermediate neighbors in the past and future&lt;/p&gt;
+    &lt;p&gt;Moving averages, average with intermediate neighbors in the past and future， &lt;script type=&quot;math/tex&quot;&gt;v_t = \frac{1}{3}(w_{t-1} + w_t + w_{t+1})&lt;/script&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Auto regression, &lt;script type=&quot;math/tex&quot;&gt;x_t = ax_{t-1} + bx_{t-2} + w_t&lt;/script&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Random walk with drift, &lt;script type=&quot;math/tex&quot;&gt;x_t = \sigma + x_{t-1} + w_t&lt;/script&gt;, where &lt;script type=&quot;math/tex&quot;&gt;\sigma&lt;/script&gt; is called the drift&lt;/p&gt;
   &lt;/li&gt;
 &lt;/ul&gt;
 
@@ -82,7 +97,9 @@
    <link href="/2015/04/18/Elements%20of%20statistical%20learning%E4%B8%94%E8%AF%BB%E4%B8%94%E6%84%9F.html"/>
    <updated>2015-04-18T00:00:00-05:00</updated>
    <id>/2015/04/18/Elements of statistical learning且读且感</id>
-   <content type="html">
+   <content type="html">&lt;h2 id=&quot;liner-regression&quot;&gt;liner regression&lt;/h2&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;RSS(\beta) = \sum_{i=1}^n \left(y^i - {x_i^T}\beta\right)^2&lt;/script&gt;
 </content>
  </entry>
  
