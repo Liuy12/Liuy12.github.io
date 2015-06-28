@@ -15,7 +15,6 @@ Centering and scaling
 
 Transformation
 --------------
---------------
 
 * log, inverse, square root, box-cox 
 
