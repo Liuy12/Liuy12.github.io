@@ -4,7 +4,7 @@
  <title>Takes time to be twisted, or not</title>
  <link href="/atom.xml" rel="self"/>
  <link href=""/>
- <updated>2015-06-29T12:17:32-05:00</updated>
+ <updated>2015-06-30T00:12:39-05:00</updated>
  <id></id>
  <author>
    <name>Yuanhang Liu</name>
@@ -150,14 +150,32 @@
     &lt;p&gt;在所有同一个class的这个variable中求median（Non-categorical）或者是mode （categorical）&lt;/p&gt;
   &lt;/li&gt;
   &lt;li&gt;
-    &lt;ul&gt;
-      &lt;li&gt;Compute proximities between classes, 可以用来做cluster， outlier detection&lt;/li&gt;
-      &lt;li&gt;
-        &lt;h2 id=&quot;section&quot;&gt;-&lt;/h2&gt;
-      &lt;/li&gt;
-    &lt;/ul&gt;
+    &lt;p&gt;第二种方式相对来说比较费时，但是相对精确。首先粗略估计一下missing value的值（可以用第一种方法来作为起始值），做一次rf，然后算sample之间的proximity，missing value的值就是weighted average或者weighted class frequency，weights就是proximity。然后循环继续同样过程，通常5-6次循环即可。&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;对于test set的missing data的处理，如果能够使用label的话，可以运用上面两种方式，如果不能使用label的话，假设每一个sample都belong to所有的class，然后去做filling。&lt;/p&gt;
   &lt;/li&gt;
 &lt;/ol&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Compute proximities between classes, 可以用来做cluster， outlier detection&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;在tree grow完成以后，将training data和oob一起过一遍tree，如果某一个sample跟另外一个在同一个terminal node里面，proximity加一。然后normalize到所有的tree&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;可以用来测设不同variable之间的interaction。（need to try sometime）&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;interaction就是比如说，一个variablesplit会导致对于另外一个variable的split more/less likely。&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;scaling&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;类似于MDS，不过是运用proximity。&lt;/p&gt;
+
+&lt;p&gt;#&lt;/p&gt;
 
 </content>
  </entry>

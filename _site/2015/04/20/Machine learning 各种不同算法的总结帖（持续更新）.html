@@ -101,14 +101,32 @@
     <p>在所有同一个class的这个variable中求median（Non-categorical）或者是mode （categorical）</p>
   </li>
   <li>
-    <ul>
-      <li>Compute proximities between classes, 可以用来做cluster， outlier detection</li>
-      <li>
-        <h2 id="section">-</h2>
-      </li>
-    </ul>
+    <p>第二种方式相对来说比较费时，但是相对精确。首先粗略估计一下missing value的值（可以用第一种方法来作为起始值），做一次rf，然后算sample之间的proximity，missing value的值就是weighted average或者weighted class frequency，weights就是proximity。然后循环继续同样过程，通常5-6次循环即可。</p>
+  </li>
+  <li>
+    <p>对于test set的missing data的处理，如果能够使用label的话，可以运用上面两种方式，如果不能使用label的话，假设每一个sample都belong to所有的class，然后去做filling。</p>
   </li>
 </ol>
+
+<ul>
+  <li>Compute proximities between classes, 可以用来做cluster， outlier detection</li>
+</ul>
+
+<p>在tree grow完成以后，将training data和oob一起过一遍tree，如果某一个sample跟另外一个在同一个terminal node里面，proximity加一。然后normalize到所有的tree</p>
+
+<ul>
+  <li>可以用来测设不同variable之间的interaction。（need to try sometime）</li>
+</ul>
+
+<p>interaction就是比如说，一个variablesplit会导致对于另外一个variable的split more/less likely。</p>
+
+<ul>
+  <li>scaling</li>
+</ul>
+
+<p>类似于MDS，不过是运用proximity。</p>
+
+<p>#</p>
 
 
   </section>
