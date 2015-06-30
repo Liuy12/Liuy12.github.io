@@ -4,12 +4,55 @@
  <title>Takes time to be twisted, or not</title>
  <link href="/atom.xml" rel="self"/>
  <link href=""/>
- <updated>2015-05-07T16:45:03-05:00</updated>
+ <updated>2015-06-29T12:17:32-05:00</updated>
  <id></id>
  <author>
    <name>Yuanhang Liu</name>
  </author>
 
+ 
+ <entry>
+   <title>Applied predictive modeling</title>
+   <link href="/2015/06/27/Applied%20predictive%20modeling.html"/>
+   <updated>2015-06-27T00:00:00-05:00</updated>
+   <id>/2015/06/27/Applied predictive modeling</id>
+   <content type="html">&lt;h1 id=&quot;data-preprocessing&quot;&gt;Data preprocessing&lt;/h1&gt;
+
+&lt;p&gt;Centering and scaling&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;PLS might benefit from centering and scaling&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Transformation&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;log, inverse, square root, box-cox&lt;/li&gt;
+&lt;/ul&gt;
+
+</content>
+ </entry>
+ 
+ <entry>
+   <title>职业选择</title>
+   <link href="/2015/06/25/%E8%81%8C%E4%B8%9A%E9%80%89%E6%8B%A9.html"/>
+   <updated>2015-06-25T00:00:00-05:00</updated>
+   <id>/2015/06/25/职业选择</id>
+   <content type="html">&lt;p&gt;最近跟Frank聊天，谈到以后的职业规划，我也一直在想，现在能确定的就是我不会去读post-doc， 除非能拿到top school的offer。 
+希望能做跟bioinformatics相关的，这样的话选择余地就小了很多，现在这方面最好的公司还是illumina，其他的选择还有各大药厂。
+另外一个选择就是去做data science，基本也就远离了生物，纯粹去做分析，挣的钱当然会比bioinformatics要多。而且工作机会也会多一些。
+我觉得我需要去找实习都去体验一下。data science和bioinformatics， 然后确定自己想要做的方向和职业规划。PS:（刚刚得到消息， 我写的第一个package要被Bioconductor接受啦！）&lt;/p&gt;
+</content>
+ </entry>
+ 
+ <entry>
+   <title>收到Bioconductor年会的travel award</title>
+   <link href="/2015/06/17/%E5%88%B0Bioconductor%E5%B9%B4%E4%BC%9A%E7%9A%84travel%20award%20-%20Copy.html"/>
+   <updated>2015-06-17T00:00:00-05:00</updated>
+   <id>/2015/06/17/到Bioconductor年会的travel award - Copy</id>
+   <content type="html">&lt;p&gt;最近刚刚收到Bioconductor 年会的travel award。有点小小的惊喜，毕竟最开始只是以试试的态度申请的，想必应该有挺多人去这个年会的。我也算是有幸能够目睹下Bioconductor本部啦。还有最近‘认识’了一位牛人，Hadley Wickham。dplyr 和 stringr都是出自此人之手； 统计PhD毕业，写代码的功夫也算了得。现在在Rstudio工作。&lt;/p&gt;
+</content>
+ </entry>
  
  <entry>
    <title>那些所谓的得不到的东西</title>
@@ -66,7 +109,7 @@
 
 &lt;h1 id=&quot;random-forest&quot;&gt;Random forest&lt;/h1&gt;
 
-&lt;p&gt;Random forest 是基于decision tree的一种方法，简单的来说就是创建 a multitude of decision trees. 先bootstrap training data， 然后对每一个bootstrap， 创建一个decision tree。为了解决tree 与 tree之间可能有的correlation的问题，在每一个resampling的data上，仅仅只使用原始feature的一部分。在R上的这个可以用来tune的parameter是 mtry， classification 的problem default是 \( \sqrt{f} \). Regression 的 default 是 \( \frac{f}{3} \).&lt;/p&gt;
+&lt;p&gt;Random forest 是基于decision tree的一种方法，简单的来说就是创建 a multitude of decision trees. 先bootstrap training data， 然后对每一个bootstrap， 创建一个decision tree。为了解决tree 与 tree之间可能有的correlation的问题，在每一个resampling的data上，仅仅只使用原始feature的一部分。在R上的这个可以用来tune的parameter是 mtry， classification 的problem default是 \( \sqrt{f} \). Regression 的 default 是 \( \frac{f}{3} \). 也因为此，random forest并不需要传统的cross validation。可以用其oob (out of bag error) 来进行筛选model。&lt;/p&gt;
 
 &lt;p&gt;Random forest 的 error rate 取决于两个方面，&lt;/p&gt;
 
@@ -80,14 +123,41 @@
 &lt;p&gt;Random forest的一些特征&lt;/p&gt;
 
 &lt;ul&gt;
-  &lt;li&gt;Random forest 可以用来estimate variable importance（to be added）&lt;/li&gt;
-  &lt;li&gt;unexcelled in accuracy&lt;/li&gt;
-  &lt;li&gt;可以用来estimate missing values (to be added)&lt;/li&gt;
-  &lt;li&gt;Compute proximities between classes, 可以用来做cluster， outlier detection&lt;/li&gt;
-  &lt;li&gt;
-    &lt;h2 id=&quot;section&quot;&gt;-&lt;/h2&gt;
-  &lt;/li&gt;
+  &lt;li&gt;Random forest 可以用来estimate variable importance&lt;/li&gt;
 &lt;/ul&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;
+    &lt;p&gt;Permutation-based：基本流程就是，对于每一个tree的oob cases， random permute某一个variable，然后计算跟不permute之间的差异。然后取每个tree的average，计算出这个variable的raw imp score。然后，assume 树与树之间的score是independent的，计算出standard error。从而算出Z score。Assume normal distribution， 算出p value。&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Gini impurity based：每一个针对某个variable的decision tree的分割，分下来的branch 都会比parent tree得gini impurity小。把所有针对于某个variable的分割的gini impurity decrease通加起来就会迅速的得到某一个variable的important score。通常会跟permutation-based方法结果类似。&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;unexcelled in accuracy&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;但是，以我自己的使用经历来看，rf通常都会是中等偏上的结果。（待验证）&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;可以用来estimate missing values&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;
+    &lt;p&gt;在所有同一个class的这个variable中求median（Non-categorical）或者是mode （categorical）&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;ul&gt;
+      &lt;li&gt;Compute proximities between classes, 可以用来做cluster， outlier detection&lt;/li&gt;
+      &lt;li&gt;
+        &lt;h2 id=&quot;section&quot;&gt;-&lt;/h2&gt;
+      &lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ol&gt;
 
 </content>
  </entry>
@@ -100,6 +170,12 @@
    <content type="html">&lt;h2 id=&quot;liner-regression&quot;&gt;liner regression&lt;/h2&gt;
 
 &lt;script type=&quot;math/tex; mode=display&quot;&gt;RSS(\beta) = \sum_{i=1}^n \left(y^i - {x_i^T}\beta\right)^2&lt;/script&gt;
+
+&lt;p&gt;Model itself rely heavily on the assumption that a linear boundary is appropriate. It has low variance and potentially high bias.&lt;/p&gt;
+
+&lt;h2 id=&quot;k-nearest-neighbors&quot;&gt;K nearest neighbors&lt;/h2&gt;
+
+&lt;p&gt;Non-linear boundary. Do not depend on the underlying structure of the data and tend to have high variance and low bias.&lt;/p&gt;
 </content>
  </entry>
  

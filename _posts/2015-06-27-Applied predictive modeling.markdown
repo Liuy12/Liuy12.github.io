@@ -6,15 +6,13 @@ tags:
     - machine learning
 ---
 
-Data preprocessing 
-------------------
+# Data preprocessing 
 
 Centering and scaling 
-=====================
+
 * PLS might benefit from centering and scaling 
 
 Transformation
---------------
 
 * log, inverse, square root, box-cox 
 
