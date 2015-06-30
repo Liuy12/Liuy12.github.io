@@ -54,7 +54,9 @@ interaction就是比如说，一个variablesplit会导致对于另外一个varia
 
 类似于MDS，不过是运用proximity。
 
-# 
+# Generalized Boosted Regression Models (gbm)
+
+ 其实现在还是不太清楚gbm是stand for Generalized Boosted Regression Models 还是，gradient boosted models。。
 
 
 
