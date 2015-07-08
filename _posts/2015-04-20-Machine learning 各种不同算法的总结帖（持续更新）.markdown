@@ -56,7 +56,11 @@ interaction就是比如说，一个variablesplit会导致对于另外一个varia
 
 # Generalized Boosted Regression Models (gbm)
 
- 其实现在还是不太清楚gbm是stand for Generalized Boosted Regression Models 还是，gradient boosted models。。
+其实现在还是不太清楚gbm是stand for Generalized Boosted Regression Models 还是，gradient boosted models。。（现在发现其实这俩种说法其实都是一个意思。。）
+
+说到gbm就得先提一提boosting的方法。boosting 也是ensemble learning的一种方法，简单的来讲就是在每一次iteration当中，都把当前misclassified的case的weight加上去。
+
+
 
 
 
