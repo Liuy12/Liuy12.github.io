@@ -8,6 +8,8 @@ tags:
 
 Some nite packages found on developer day Bioc2015
 
+- heatmap3
+
 - switchr: An R package for managing and seamlessly switching between sets of installed R packages. <https://cran.r-project.org/web/packages/switchr/index.html>
 
 - solr: General purpose R interface to Solr. <https://cran.r-project.org/web/packages/solr/index.html>
@@ -23,5 +25,25 @@ Some nite packages found on developer day Bioc2015
 - codecov, backend coverage tool for covr. <https://codecov.io/>
 
 
+Day2 BioC
+
+- cole trapnell: 
+glm fit to detect single cell trajactory
+lineage dependent genes 
+single-cell ATAC-seq
+TF-idf, tranfrom binary data to continious data
+
+- wenyi Wang
+deconvolution of mixed gene expression in hetergenenity of samples (cell-type proportions)
+Simply speaking, remvoe the heterogenity noise (normal within tumor), by asssuming a mixture model and bayesian statistics. 
+
+
+
+
+
+
+ideas:
+real-time meomory visuliztion for R
+dynamic heatmap, vector-based editing
 
 
