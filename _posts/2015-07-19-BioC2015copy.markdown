@@ -1,0 +1,27 @@
+---
+title: 'BioC2015'
+comments: true
+layout: post
+tags:
+    - conference
+---
+
+Some nite packages found on developer day Bioc2015
+
+- switchr: An R package for managing and seamlessly switching between sets of installed R packages. <https://cran.r-project.org/web/packages/switchr/index.html>
+
+- solr: General purpose R interface to Solr. <https://cran.r-project.org/web/packages/solr/index.html>
+
+- Rabix: to make bioinformatics pipelines. <https://www.rabix.org/>
+
+- covr: Test coverage for packages. <https://cran.r-project.org/web/packages/covr/index.html>
+
+- lintr: Statis R code analysis. <https://cran.r-project.org/web/packages/lintr/index.html>
+
+- codetools: code analysis tools for R. Default tools used by R CMD check. <https://cran.r-project.org/web/packages/codetools/index.html>
+
+- codecov, backend coverage tool for covr. <https://codecov.io/>
+
+
+
+
