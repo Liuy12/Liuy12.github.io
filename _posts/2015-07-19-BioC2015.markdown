@@ -6,6 +6,8 @@ tags:
     - conference
 ---
 
+# BioC Day 1
+
 Some nite packages found on developer day Bioc2015
 
 - heatmap3
@@ -25,7 +27,7 @@ Some nite packages found on developer day Bioc2015
 - codecov, backend coverage tool for covr. <https://codecov.io/>
 
 
-Day2 BioC
+# Day2 BioC
 
 - cole trapnell: 
 glm fit to detect single cell trajactory
@@ -37,13 +39,69 @@ TF-idf, tranfrom binary data to continious data
 deconvolution of mixed gene expression in hetergenenity of samples (cell-type proportions)
 Simply speaking, remvoe the heterogenity noise (normal within tumor), by asssuming a mixture model and bayesian statistics. 
 
+- Karl Broman
+interactive plot using D3 <http://d3js.org/>
+qtlchart <http://kbroman.org/qtlcharts/>
+ggvis <http://ggvis.rstudio.com/>
+coffeescript <http://coffeescript.org/>
+htmlwidgets for R <http://www.htmlwidgets.org/>
+JSFiddle for testing javascript <https://jsfiddle.net/>
+
+- Leonard Goldstein
+SGSeq, alternative splicing
+
+- Nicole Deflaux
+Google genomics, Dream challenge
+
+- Tengfei
+rabix <https://www.rabix.org>, docopt <http://docopt.org/>, liftr, sbgr
+
+# Day3 BioC
+
+- Zhijin Wu
+Gene set analysis
+Global test, TEGS (2013)
+(GSA, Efron & Tibshirani 2007) same direction of genes in the pathway. 
+take considerations of small but consistant change of all the genes in the gene set 
+
+questions 
+- Not same direction in biological pathways
+- PCA based method
+- simulation vs real data evaluation 
+- False positives, AUC during simulation 
+- R package?
+
+- Artem Sokolov
+Integrating prior biological knowledge using Generalized Elastic Nets
+gelnet <https://cran.r-project.org/web/packages/gelnet/index.html>
+
+- TCGA downloader 
+mogsa: Multiple omics data integration and gene set analysis <http://www.bioconductor.org/packages/release/bioc/html/mogsa.html>
+
+RTCGAToolbox: A new tool for exporting TCGA Firehose data <https://www.bioconductor.org/packages/devel/bioc/html/RTCGAToolbox.html>
+
+SGSeq: Splice event detection and quantification from RNA-seq data
+<http://bioconductor.org/packages/release/bioc/html/SGSeq.html>
+
+
 
 
 
 
 
 ideas:
-real-time meomory visuliztion for R
-dynamic heatmap, vector-based editing
+- Drug-drug interaction (DsigDB, and TCGA data)
+- real-time meomory visuliztion for R
+- dynamic heatmap, vector-based editing (interactive plot ggvis)
+- code executing time estimate (like data.table does, prob some C code)
+- different type of errors (family wise type error)
+- Bayesian statistiscs summary (refresh basics)
+- normalization comparison for RNA-seq, miRNA-seq
+- DE analysis comparison of DESeq2, edgeR-robust
+- feature selection, iterative ensembel learning 
+- update XBSeq, 
+
+
+
 
 
