@@ -90,6 +90,7 @@ SGSeq: Splice event detection and quantification from RNA-seq data
 
 
 ideas:
+
 - Drug-drug interaction (DsigDB, and TCGA data)
 - real-time meomory visuliztion for R
 - dynamic heatmap, vector-based editing (interactive plot ggvis)
