@@ -38,21 +38,23 @@
   
   <article class="content">
     <section class="title">
-      <h2><a href="/2015/06/27/Applied%20predictive%20modeling.html">Applied predictive modeling</a></h2>
+      <h2><a href="/2015/08/02/Comparison%20of%20differential%20expression%20methods.html">Comparison of differential expression methods for RNA-seq</a></h2>
     </section>
     <section class="meta">
     <span class="time">
-      <time datetime="2015-06-27">2015-06-27</time>
+      <time datetime="2015-08-02">2015-08-02</time>
     </span>
     
     <span class="tags">
       
-      <a href="/tags.html#machine learning" title="machine learning">#machine learning</a>
+      <a href="/tags.html#RNA-seq" title="RNA-seq">#RNA-seq</a>
+      
+      <a href="/tags.html#Genomics" title="Genomics">#Genomics</a>
       
     </span>
     
     <!-- BEGIN this would not work on any other domain -->
-    <span class="like-wrapper" like-shortname="gopherwood" like-identifier="" like-name="Applied predictive modeling" like-link="/index.html" like-btn="&#xf087;"></span>
+    <span class="like-wrapper" like-shortname="gopherwood" like-identifier="" like-name="Comparison of differential expression methods for RNA-seq" like-link="/index.html" like-btn="&#xf087;"></span>
     <script type="text/javascript">
       var l = document.createElement('script'); l.type = 'text/javascript'; l.async = true;
       l.src = 'http://www.like-btn.com/javascript/widget.js';
@@ -61,19 +63,41 @@
     <!-- END this would not work on any other domain -->
     </section>
     <section class="post">
-    <h1 id="data-preprocessing">Data preprocessing</h1>
+    <p>This is mainly the summary results from ‘Comprehensive evaluation of differential gene expression analysis methods for RNA-seq data’ <a href="http://www.genomebiology.com/2013/14/9/r95#B27">http://www.genomebiology.com/2013/14/9/r95#B27</a>.</p>
 
-<p>Centering and scaling</p>
-
-<ul>
-  <li>PLS might benefit from centering and scaling</li>
-</ul>
-
-<p>Transformation</p>
+<h2 id="normalization">Normalization</h2>
 
 <ul>
-  <li>log, inverse, square root, box-cox</li>
+  <li>reads per kilobase per million reads (RPKM)</li>
 </ul>
+
+<script type="math/tex; mode=display">RPKM = ({10^9} \cdot C)/(N \cdot L)</script>
+
+<p>Where C stands for number of reads mapped to a gene (Number of fragments in terms of FPKM); N stands for total library size; L stands for gene length.</p>
+
+<p>RPKM and FPKM has some obvious limitations. RPKM and FPKM are both propotional to the real abundance of a transcript/isoform, however, for different experiments, the propotional ratio is not constant. This means that you need to do further normalization after RPKM or FPKM.</p>
+
+<p>All these methods have one limitations in common: It is relative abundance, which means the expression changes in one gene can also affect the relative abundance of other genes.</p>
+
+<ul>
+  <li>TPM</li>
+</ul>
+
+<script type="math/tex; mode=display">TPM = p\cdot{10^6}</script>
+
+<p>where p stands for the probablity of selecting a fragment from one transcirpt among all read counts. Different from RPKM/FPKM, TPM maesures estimated abundance rather than relative abundance. TPM is generally preferred than RPKM/FPKM</p>
+
+<ul>
+  <li>DESeq’s sizeFactors</li>
+</ul>
+
+<script type="math/tex; mode=display">\hat{s_j} = \underset{i}{median}\frac{k_{ij}}{\left(\prod_{v=1}^m k_{iv}\right)^{\frac 1m}}</script>
+
+<h2 id="references">references</h2>
+
+<p>Lior Pachter’s talk <a href="http://www.homolog.us/blogs/blog/2013/11/22/cshl-keynote-talk-lior-pachter/">http://www.homolog.us/blogs/blog/2013/11/22/cshl-keynote-talk-lior-pachter/</a></p>
+
+<p>Discussion of RPKM, FPKM and TPM on google groups <a href="https://groups.google.com/forum/#!topic/rsem-users/GRyJfEOK1BQ">https://groups.google.com/forum/#!topic/rsem-users/GRyJfEOK1BQ</a></p>
 
 
     </section>
@@ -84,6 +108,27 @@
   <ul class="listing main-listing">
     <li class="listing-seperator">Happend earlier this year
   
+  
+    
+    
+    <li class="listing-item">
+      <time datetime="2015-07-19">2015-07-19</time>
+      <a href="/2015/07/19/BioC2015.html" title="BioC2015">BioC2015</a>
+    </li>
+  
+    
+    
+    <li class="listing-item">
+      <time datetime="2015-07-08">2015-07-08</time>
+      <a href="/2015/07/08/StochasticvsDeterministic.html" title="StochasticvsDeterministic">StochasticvsDeterministic</a>
+    </li>
+  
+    
+    
+    <li class="listing-item">
+      <time datetime="2015-06-27">2015-06-27</time>
+      <a href="/2015/06/27/Applied%20predictive%20modeling.html" title="Applied predictive modeling">Applied predictive modeling</a>
+    </li>
   
     
     
