@@ -30,6 +30,8 @@
             
             <span><a title="About" href="/about.html"><i class="fa fa-user"></i></a></span>
             
+            <span><a title="Gallery" href="https://www.pinterest.com/beckhamok/"><i class="fa fa-film"></i></a></span>
+            
           </nav>
         </header>
         <div id="content">
@@ -81,6 +83,42 @@
 </ul>
 
 <script type="math/tex; mode=display">\hat{s_j} = \underset{i}{median}\frac{k_{ij}}{\left(\prod_{v=1}^m k_{iv}\right)^{\frac 1m}}</script>
+
+<ul>
+  <li>Cuffdiff</li>
+</ul>
+
+<p>Similar to DESeq, firstly intro-condition scaling factor, secondly, across condition scaling factor.</p>
+
+<ul>
+  <li>Trimmed mean of M values (TMM)</li>
+</ul>
+
+<p>TMM is implemented in edgeR which computes a scaling factor between two experiments by using the weighted average of the subset of genes after excluding genes that exhibit high average read counts and genes that have large differences in expression.</p>
+
+<p>baySeq implements similar method as TMM; It uses genes with upper quantile in terms of expression levels to calculate scaling factor</p>
+
+<p>PoissonSeq use a subset of genes (Least differentially expressed between conditions) to calculate a scaling factor for normalization.</p>
+
+<ul>
+  <li>Quantile</li>
+</ul>
+
+<p>Very widely used normalization method for microarray, implemented in limmma; Basically ensure that the empirical distribution across all samples is the same.</p>
+
+<h2 id="statistical-modeling">Statistical modeling</h2>
+
+<ul>
+  <li>Poisson</li>
+</ul>
+
+<p>PoissonSeq</p>
+
+<ul>
+  <li>Negative binomial</li>
+</ul>
+
+<p>To account for over-dispersion problem. DESeq and edgeR, DESeq and edgeR differs in terms of estimation of dispersion parameter (squared coefficient of variation).</p>
 
 <h2 id="references">references</h2>
 

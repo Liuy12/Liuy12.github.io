@@ -31,6 +31,35 @@ where p stands for the probablity of selecting a fragment from one transcirpt am
 
 $$ \hat{s_j} = \underset{i}{median}\frac{k_{ij}}{\left(\prod_{v=1}^m k_{iv}\right)^{\frac 1m}} $$
 
+- Cuffdiff
+
+Similar to DESeq, firstly intro-condition scaling factor, secondly, across condition scaling factor. 
+
+- Trimmed mean of M values (TMM)
+
+TMM is implemented in edgeR which computes a scaling factor between two experiments by using the weighted average of the subset of genes after excluding genes that exhibit high average read counts and genes that have large differences in expression. 
+
+baySeq implements similar method as TMM; It uses genes with upper quantile in terms of expression levels to calculate scaling factor
+
+PoissonSeq use a subset of genes (Least differentially expressed between conditions) to calculate a scaling factor for normalization. 
+
+- Quantile 
+
+Very widely used normalization method for microarray, implemented in limmma; Basically ensure that the empirical distribution across all samples is the same.
+
+## Statistical modeling
+
+- Poisson 
+
+PoissonSeq
+
+- Negative binomial
+
+To account for over-dispersion problem. DESeq and edgeR, DESeq and edgeR differs in terms of estimation of dispersion parameter (squared coefficient of variation). 
+
+
+
+
 ## references
 
 Lior Pachter's talk <http://www.homolog.us/blogs/blog/2013/11/22/cshl-keynote-talk-lior-pachter/>

@@ -1,0 +1,247 @@
+---
+title: 'HTML&CSS'
+comments: true
+layout: post
+tags:
+    - web design
+---
+
+{::options parse_block_html=false /}
+
+- <!DOCTYPE html>. put in first line, tells browser what languange it's reading
+
+- put <html> in second line, indicates start of a html document 
+
+- </html>, put in last line, indicates the end of a html document 
+
+- Things inside '<>' are called tags, nearly always come in pairs
+
+- html contains two parts <head> and <body>
+
+- the <head> contains <title, markdown="span">.
+
+- the <body> contains content information, like text, links and pictures
+
+- the <p> indicates paragraph
+
+- the <h1> create heading within <body>, size from 1 to 6, 6 is smallest
+
+- hyperlink within <body>, 
+
+~~~ html
+<a href="http://liuy12.github.io/">
+My blog
+</a>
+~~~
+
+- adding images, 
+
+~~~ html
+<img src="url" />, not closing tag this time! watch out for the space between "url" and />
+~~~
+
+- create a image as a hyperlink 
+
+~~~ html
+<a href="http://www.codecademy.com/">
+    <img src="https://s3.amazonaws.com/codecademy-blog/assets/f3a16fb6.jpg"/>
+</a>
+~~~
+
+
+- create ordered list by <ol>, each list starts with <li>; unordered list by <ul>, each list starts also by <li>
+
+- comment in html `<!-- -->`
+
+
+- add attribute to a tag like: `<p style="font-size: 12px">`; and also `<h2 style="color: green; font-size:12px">`; `<h1 style="font-family: Arial">Title</h1>` 
+
+- list of available colors <http://www.w3.org/TR/css3-color/#svg-color>
+
+- list of available fonts <http://www.w3.org/TR/CSS21/fonts.html#generic-font-families>
+
+- set background color `<p style="background-color: red;">Hello!</p>`
+
+- text align: <h1 style="text-align:center">
+
+- the `<strong>` `</strong>` makes txt bold
+
+- italicize word: `<em>`
+
+- creat tables: `<table>`; `<tr>` creates a table row
+
+- A table with three rows and one column
+
+~~~ html
+<table border="1px"> 
+            <tr>
+                <td>One</td>
+            </tr>
+            <tr>
+                <td>Two</td>
+            </tr>
+            <tr>
+                <td>Three</td>
+            </tr>
+</table>
+~~~ 
+
+- the `<tbody>` and `<thead>` for `<table>`, put within `<table>`
+
+- within `<thead>`, add column names to the table 
+
+~~~ html
+<thead>
+    <tr>
+        <th>Famous monster</th>
+        <th>Birth year</th>
+    </tr>
+</thead>
+~~~ 
+
+- change attribute of `<th>` to make header across multiple columns 
+`<th colspan="3">`
+
+- The `<div>` allow you to divide your page into different containers and apply style seperately; usful for building meau bar, etc. 
+
+- The `<span>` allows you to control style for smaller parts of your page
+<span style="color:red">red</span>
+
+- CSS basically stylize your html content
+
+- link CSS file to html file: 
+
+~~~ html
+<link type="text/css" rel="stylesheet" href="stylesheet.css">
+~~~
+add this link in the `<head>` section of html file
+
+
+- CSS syntax: 
+
+~~~ css
+selector {
+    property: value;
+}
+~~~
+
+- comment in CSS `/*I'm a comment!*/`
+
+- colors can be assigned via hexidecimal values 
+
+- `em` can be used for relative font-size 
+`<p style="font-size: 1em">One em!</p>`
+
+- within css file, ass border style to table
+such as : 
+
+~~~ css
+table{
+    border: 1px solid black;
+}
+~~~
+
+- change link style, by changing text-decoration
+
+~~~ css
+a{
+    color: #cc0000;
+    text-decoration: none;
+}
+~~~
+
+- CSS can also be nested:
+
+~~~ css
+div div p {
+    /*CSS stuff!*/
+}
+~~~
+
+- direct nested CSS: `div > p { /* Some CSS */ }`
+
+- within CSS, more specific value can override general values, classes and ids are even more specific than nested style.
+
+- extra selectors for CSS: classes and IDs.
+within html:
+
+~~~ html
+<div class="square"></div>
+<img class="square"/>
+<td class="square"></td>
+~~~
+
+within CSS:
+
+~~~ css
+square {
+    height: 100px;
+    width: 100px;
+}
+~~~
+
+- user interactive style change: Psudo-class selectors
+
+~~~ css
+selector:pseudo-class_selector {
+    property: value;
+}
+~~~
+
+Exmaple:
+
+~~~ css
+a:hover {
+	color: #cc0000;
+	font-weight: bold;
+	text-decoration: none;
+}
+~~~
+
+- psudo class seletors: 
+
+~~~ css
+a:link
+a:visited
+a:hover
+p:first-child
+p:nth-child(2)
+~~~
+
+- display: `inline-block`; adjust display by window size
+
+- border-radius: 100%; make it more smooth-like; 
+
+- display mode of html elements:
+block; inline-block; inline; none;
+
+- box-like display of html elements: 
+
+~~~ css
+margin: auto
+margin-top: /*some value*/
+margin-right: /*some value*/
+~~~
+
+also can be set as `margin: 1px 2px 3px 4px;` (top right bottom left)
+
+- padding: distance between content and border; can be specified same way as margin;
+
+- float property; determine the position of html elements so that they dont land on top of each other; canbe set via `float: right`; `clear: left/right/both` can be used to get out of the elements on the left or right
+
+- position; possible values `position: static(default)/absolute/relative/fixed
+
+- `z-index`, measure of importance, higher the better, ensure a certain element sit ontop of others.
+
+
+
+
+
+
+
+
+
+
+
+
+

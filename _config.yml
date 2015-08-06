@@ -17,4 +17,7 @@ navigations:
   - title: About
     class: fa fa-user
     href: /about.html
+  - title: Gallery
+    class: fa fa-film
+    href: https://www.pinterest.com/beckhamok/
 
