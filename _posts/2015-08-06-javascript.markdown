@@ -126,4 +126,34 @@ switch(lunch){
 
 - toUpperCase() and toLowerCase()
 
+- heterogenous arrays and arrays inside of arrays; if the dimension is not the same, then it's jagged arrays;
 
+- creat one object:
+
+~~~
+var myObject = {
+    key: value,
+    key: value,
+    key: value
+};
+~~~
+
+example
+
+~~~
+var phonebookEntry = {};
+
+phonebookEntry.name = 'Oxnard Montalvo';
+phonebookEntry.number = '(555) 555-5555';
+phonebookEntry.phone = function() {
+  console.log('Calling ' + this.name + ' at ' + this.number + '...');
+};
+~~~
+
+can also be custructed via
+
+~~~
+var myObj = new Object();
+myObj["name"] = "Charlie";
+myObj.name = "Charlie";
+~~~

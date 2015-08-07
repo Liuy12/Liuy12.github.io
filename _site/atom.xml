@@ -4,7 +4,7 @@
  <title>Takes time to be twisted, or not</title>
  <link href="/atom.xml" rel="self"/>
  <link href=""/>
- <updated>2015-08-06T20:24:19-05:00</updated>
+ <updated>2015-08-07T11:49:32-05:00</updated>
  <id></id>
  <author>
    <name>Yuanhang Liu</name>
@@ -179,9 +179,39 @@ switch(lunch){
       &lt;/tbody&gt;
     &lt;/table&gt;
   &lt;/li&gt;
-  &lt;li&gt;toUpperCase() and toLowerCase()&lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;toUpperCase() and toLowerCase()&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;heterogenous arrays and arrays inside of arrays; if the dimension is not the same, then it’s jagged arrays;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;creat one object:&lt;/li&gt;
 &lt;/ul&gt;
 
+&lt;pre&gt;&lt;code&gt;var myObject = {
+    key: value,
+    key: value,
+    key: value
+};
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;example&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;var phonebookEntry = {};
+
+phonebookEntry.name = &#39;Oxnard Montalvo&#39;;
+phonebookEntry.number = &#39;(555) 555-5555&#39;;
+phonebookEntry.phone = function() {
+  console.log(&#39;Calling &#39; + this.name + &#39; at &#39; + this.number + &#39;...&#39;);
+};
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;can also be custructed via&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;var myObj = new Object();
+myObj[&quot;name&quot;] = &quot;Charlie&quot;;
+myObj.name = &quot;Charlie&quot;;
+&lt;/code&gt;&lt;/pre&gt;
 </content>
  </entry>
  

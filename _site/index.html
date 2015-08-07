@@ -30,7 +30,7 @@
             
             <span><a title="About" href="/about.html"><i class="fa fa-user"></i></a></span>
             
-            <span><a title="Gallery" href="https://www.pinterest.com/beckhamok/"><i class="fa fa-film"></i></a></span>
+            <span><a title="Gallery" href="https://www.flickr.com/photos/133563883@N05/"><i class="fa fa-film"></i></a></span>
             
           </nav>
         </header>
@@ -226,9 +226,39 @@ switch(lunch){
       </tbody>
     </table>
   </li>
-  <li>toUpperCase() and toLowerCase()</li>
+  <li>
+    <p>toUpperCase() and toLowerCase()</p>
+  </li>
+  <li>
+    <p>heterogenous arrays and arrays inside of arrays; if the dimension is not the same, then it’s jagged arrays;</p>
+  </li>
+  <li>creat one object:</li>
 </ul>
 
+<pre><code>var myObject = {
+    key: value,
+    key: value,
+    key: value
+};
+</code></pre>
+
+<p>example</p>
+
+<pre><code>var phonebookEntry = {};
+
+phonebookEntry.name = 'Oxnard Montalvo';
+phonebookEntry.number = '(555) 555-5555';
+phonebookEntry.phone = function() {
+  console.log('Calling ' + this.name + ' at ' + this.number + '...');
+};
+</code></pre>
+
+<p>can also be custructed via</p>
+
+<pre><code>var myObj = new Object();
+myObj["name"] = "Charlie";
+myObj.name = "Charlie";
+</code></pre>
 
     </section>
     </article>
