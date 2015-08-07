@@ -3,19 +3,26 @@ title: 'git essentials'
 comments: true
 layout: post
 tags:
-    - RNA-seq
-    - Genomics
+    - git
+    - version control
 ---
-git config --global user.name ""
+configure user name/email and color.ui
+
+~~~~~~~~~~ git 
+git config --global user.name
 git config --global user.email 
 git config --global color.ui true
+~~~~~~~~~~
 
+Basic steps for git,
+untracked ----- tracked/stage ------ commit
+
+~~~ git
 git init 
 git status
 git add
-git commit
+git commit -m ""
 git log
+~~~
 
 
-
-untracked ----- tracked/stage ------ commit
