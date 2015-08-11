@@ -4,12 +4,231 @@
  <title>Takes time to be twisted, or not</title>
  <link href="/atom.xml" rel="self"/>
  <link href=""/>
- <updated>2015-08-07T11:49:32-05:00</updated>
+ <updated>2015-08-10T19:10:03-05:00</updated>
  <id></id>
  <author>
    <name>Yuanhang Liu</name>
  </author>
 
+ 
+ <entry>
+   <title>Javascript</title>
+   <link href="/2015/08/09/Shiny%20recap.html"/>
+   <updated>2015-08-09T00:00:00-05:00</updated>
+   <id>/2015/08/09/Shiny recap</id>
+   <content type="html">&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;comments for javascript is &lt;code&gt;\\&lt;/code&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;basic syntax for javascript: &lt;code&gt;&quot;cake&quot;.length&lt;/code&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;javascript
+    &lt;ul&gt;
+      &lt;li&gt;websites that responde to user interaction, example: &lt;code&gt;confirm(&quot;...&quot;)&lt;/code&gt;, &lt;code&gt;promot(&quot;...&quot;)&lt;/code&gt;&lt;/li&gt;
+      &lt;li&gt;build apps and games&lt;/li&gt;
+      &lt;li&gt;access information on the internet (query?)&lt;/li&gt;
+      &lt;li&gt;data visualization&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;strings with quote, numbers without quote&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;code&gt;console.log()&lt;/code&gt;, print out whatever is in the parentheses.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;’===’ equals to; ‘!==’ not equal to&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;if statement syntax&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-javascript&quot;&gt;if ( &quot;Leo&quot;.length&amp;lt;4) {
+    console.log(&quot;You have a short name!&quot; );
+}
+else {
+    console.log(&quot;You have a short name!&quot;);  
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;substring: &lt;code&gt;&quot;wonderfulday&quot;.substring(3,7)&lt;/code&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;declare a variable: &lt;code&gt;var myAge = 20&lt;/code&gt;;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;declaration of a function:&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;pre&gt;&lt;code&gt;var greeting = function (name) {
+    console.log(&quot;Great to see you,&quot; + &quot; &quot; + name);
+};
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;concatenate strings using ‘+’&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;put semicolon at end of each line and each function&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;return a value rather than print to screen;&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;pre&gt;&lt;code&gt;var timesTwo = function(number) {
+    return number * 2;
+};
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;code&gt;var&lt;/code&gt; use only the varibale that is in current scope (global or local)&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;code&gt;math.random()&lt;/code&gt;, generate a random number between 0 and 1;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;for loop syntax in javascript:&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;pre&gt;&lt;code&gt;for (var counter = 1; counter &amp;lt; 6; counter++) {
+    console.log(counter);
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;code&gt;i++, i--, +=, -=&lt;/code&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;array in javascript: &lt;code&gt;var arrayName = [data, data, data];&lt;/code&gt;
+can be accessed via &lt;code&gt;[index]&lt;/code&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;wrap long text using ‘&#39; in the end of sentence.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;code&gt;push&lt;/code&gt; is a method for array, to push the thing in ‘()’ to the array.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;while statememt:&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;pre&gt;&lt;code&gt;while(coinFace === 0){
+    console.log(&quot;Heads! Flipping again...&quot;);
+    var coinFace = Math.floor(Math.random() * 2);
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;do/while loop, execute at least once;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;pre&gt;&lt;code&gt;var loopCondition = false;
+
+do {
+    console.log(&quot;I&#39;m gonna stop looping &#39;cause my condition is &quot; + loopCondition + &quot;!&quot;);    
+} while (loopCondition);
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;isNaN: is not a number;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;switch case&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;pre&gt;&lt;code&gt;var lunch = prompt(&quot;What do you want for lunch?&quot;,&quot;Type your lunch choice here&quot;);
+
+switch(lunch){
+  case &#39;sandwich&#39;:
+    console.log(&quot;Sure thing! One sandwich, coming up.&quot;);
+    break;
+  case &#39;soup&#39;:
+    console.log(&quot;Got it! Tomato&#39;s my favorite.&quot;);
+    break;
+  case &#39;salad&#39;:
+    console.log(&quot;Sounds good! How about a caesar salad?&quot;);
+    break;
+  case &#39;pie&#39;:
+    console.log(&quot;Pie&#39;s not a meal!&quot;);
+    break;
+  default:
+    console.log(&quot;Huh! I&#39;m not sure what &quot; + lunch + &quot; is. How does a sandwich sound?&quot;);
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;table&gt;
+      &lt;tbody&gt;
+        &lt;tr&gt;
+          &lt;td&gt;logical operators: (&amp;amp;&amp;amp;), (&lt;/td&gt;
+          &lt;td&gt; &lt;/td&gt;
+          &lt;td&gt;), (!)&lt;/td&gt;
+        &lt;/tr&gt;
+      &lt;/tbody&gt;
+    &lt;/table&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;toUpperCase() and toLowerCase()&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;heterogenous arrays and arrays inside of arrays; if the dimension is not the same, then it’s jagged arrays;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;creat one object:&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;pre&gt;&lt;code&gt;var myObject = {
+    key: value,
+    key: value,
+    key: value
+};
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;example&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;var phonebookEntry = {};
+
+phonebookEntry.name = &#39;Oxnard Montalvo&#39;;
+phonebookEntry.number = &#39;(555) 555-5555&#39;;
+phonebookEntry.phone = function() {
+  console.log(&#39;Calling &#39; + this.name + &#39; at &#39; + this.number + &#39;...&#39;);
+};
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;can also be custructed via&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;var myObj = new Object();
+myObj[&quot;name&quot;] = &quot;Charlie&quot;;
+myObj.name = &quot;Charlie&quot;;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;javascirpt is also oop. &lt;code&gt;object.method = function(){};&lt;/code&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;The &lt;code&gt;this&lt;/code&gt; keyword; Can be used for any object;&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;pre&gt;&lt;code&gt;var setAge = function (newAge) {
+  this.age = newAge;
+};
+&lt;/code&gt;&lt;/pre&gt;
+
+</content>
+ </entry>
  
  <entry>
    <title>Javascript</title>
@@ -212,6 +431,21 @@ phonebookEntry.phone = function() {
 myObj[&quot;name&quot;] = &quot;Charlie&quot;;
 myObj.name = &quot;Charlie&quot;;
 &lt;/code&gt;&lt;/pre&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;javascirpt is also oop. &lt;code&gt;object.method = function(){};&lt;/code&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;The &lt;code&gt;this&lt;/code&gt; keyword; Can be used for any object;&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;pre&gt;&lt;code&gt;var setAge = function (newAge) {
+  this.age = newAge;
+};
+&lt;/code&gt;&lt;/pre&gt;
+
 </content>
  </entry>
  
@@ -563,6 +797,10 @@ git log
 
 &lt;script type=&quot;math/tex; mode=display&quot;&gt;TPM = p\cdot{10^6}&lt;/script&gt;
 
+&lt;p&gt;Or can also be formulated by:&lt;/p&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;TPM = \frac{FPKM\cdot{10^6}}{\sum FPKM}&lt;/script&gt;
+
 &lt;p&gt;where p stands for the probablity of selecting a fragment from one transcirpt among all read counts. Different from RPKM/FPKM, TPM maesures estimated abundance rather than relative abundance. TPM is generally preferred than RPKM/FPKM&lt;/p&gt;
 
 &lt;ul&gt;
@@ -606,6 +844,49 @@ git log
 &lt;/ul&gt;
 
 &lt;p&gt;To account for over-dispersion problem. DESeq and edgeR, DESeq and edgeR differs in terms of estimation of dispersion parameter (squared coefficient of variation).&lt;/p&gt;
+
+&lt;p&gt;DESeq firstly models mean-variance relationship to get a better estimation of dispersion (squared coefficient of variation). For smaller number of replicates, additional apply a bias correction procedure for dispersion estimates.&lt;/p&gt;
+
+&lt;p&gt;edgeR firstly estimate a common dispersion of all the genes, then applied a weighted maximum liklihood estimation of the weighted paramter of common dispersion and gene-wise dispersion, so that if the dispersion are very variable (different) across all the genes, the weight parameter should be very small, otherwise, it should be very big (to a common dispersion estimates)&lt;/p&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;WL(\phi_g) = l_g(\phi_g) + \alpha \cdot l_C(\phi_g)&lt;/script&gt;
+
+&lt;p&gt;Cufdiff models single isoform and multi-isoform differently; For single isoform, cufdiff applies a similar method as DESeq. Multi-isoform variance is modeled by a mixture model of negative binomials using the beta distribution parameters as mixture weights.&lt;/p&gt;
+
+&lt;p&gt;baySeq implements a full Bayesian model of negative binomial distributions in which the prior probability parameters are estimated by numerical sampling from the data&lt;/p&gt;
+
+&lt;h2 id=&quot;test-for-differential-expression&quot;&gt;Test for differential expression&lt;/h2&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Fisher exact test for NB distribution&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Both DESeq and edgeR adopted a NB flavor fisher exact test&lt;/p&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;p = \frac{\sum_{a+b=K_S \; p(a,b) \le p(K_A, K_B)} p(a,b)}{\sum_{a+b=K_S} p(a,b)}&lt;/script&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;t test or moderated t test&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Cuffdiff computes test statistics:&lt;/p&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;T = \frac{E[log(y)]}{Var[log(y)]}&lt;/script&gt;
+
+&lt;p&gt;This ratio approximately follows a normal distribution, a t test is applied to identify DEGs&lt;/p&gt;
+
+&lt;p&gt;limma uses a moderated t-statistic to compute P values in which both the standard error and the degrees of freedom are modified&lt;/p&gt;
+
+&lt;script&gt;
+  (function(i,s,o,g,r,a,m){i[&#39;GoogleAnalyticsObject&#39;]=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,&#39;script&#39;,&#39;//www.google-analytics.com/analytics.js&#39;,&#39;ga&#39;);
+
+  ga(&#39;create&#39;, &#39;UA-66197207-1&#39;, &#39;auto&#39;);
+  ga(&#39;send&#39;, &#39;pageview&#39;);
+
+&lt;/script&gt;
 
 &lt;h2 id=&quot;references&quot;&gt;references&lt;/h2&gt;
 
@@ -793,15 +1074,6 @@ mogsa: Multiple omics data integration and gene set analysis &lt;a href=&quot;ht
    <updated>2015-06-17T00:00:00-05:00</updated>
    <id>/2015/06/17/到Bioconductor年会的travel award - Copy</id>
    <content type="html">&lt;p&gt;最近刚刚收到Bioconductor 年会的travel award。有点小小的惊喜，毕竟最开始只是以试试的态度申请的，想必应该有挺多人去这个年会的。我也算是有幸能够目睹下Bioconductor本部啦。还有最近‘认识’了一位牛人，Hadley Wickham。dplyr 和 stringr都是出自此人之手； 统计PhD毕业，写代码的功夫也算了得。现在在Rstudio工作。&lt;/p&gt;
-</content>
- </entry>
- 
- <entry>
-   <title>那些所谓的得不到的东西</title>
-   <link href="/2015/04/29/%E6%9C%89%E4%BA%9B%E4%B8%9C%E8%A5%BF%E4%BD%A0%E5%BE%97%E4%B8%8D%E5%88%B0.html"/>
-   <updated>2015-04-29T00:00:00-05:00</updated>
-   <id>/2015/04/29/有些东西你得不到</id>
-   <content type="html">&lt;p&gt;那些所谓的得不到的东西， 有些许无奈， 些许安慰， 归其原因， 不过于是自己的内心不够强大， 终究是对它不够渴望。&lt;/p&gt;
 </content>
  </entry>
  
