@@ -22,7 +22,17 @@ git init
 git status
 git add
 git commit -m ""
+git push -u origin master
 git log
 ~~~
 
+Pull and merge, pull is basically fetch and merge
+
+~~~ 
+git fetch origin pull/ID/head: branchname
+git chekcout branchname
+git merge 
+git mergetool
+git push 
+~~~
 
