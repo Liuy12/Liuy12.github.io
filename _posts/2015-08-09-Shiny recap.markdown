@@ -32,4 +32,8 @@ tag()
 include()
 ~~~
 
-Details can be from as the shiny reference website <http://shiny.rstudio.com/reference/shiny/latest/>
+- Shiny dashboard
+A shiny flavor implementation of [AdminLTE](https://almsaeedstudio.com/) 
+
+
+Details can be found from the shiny reference [website](http://shiny.rstudio.com/reference/shiny/latest/)

@@ -6,7 +6,7 @@ tags:
     - Parallel processing
 ---
 
-The CRAN Task View for high performance and parallel computing <https://cran.r-project.org/web/views/HighPerformanceComputing.html>
+The CRAN Task View for [high performance and parallel computing](https://cran.r-project.org/web/views/HighPerformanceComputing.html)
 
 Most of these packages cite or identify one or more of snow, Rmpi, multicore, foreach as relevant parallelization infratructure. 
 

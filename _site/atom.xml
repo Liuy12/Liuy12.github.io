@@ -4,7 +4,7 @@
  <title>Takes time to be twisted, or not</title>
  <link href="/atom.xml" rel="self"/>
  <link href=""/>
- <updated>2015-08-10T20:16:30-05:00</updated>
+ <updated>2015-09-13T12:03:45-05:00</updated>
  <id></id>
  <author>
    <name>Yuanhang Liu</name>
@@ -12,221 +12,63 @@
 
  
  <entry>
-   <title>Javascript</title>
+   <title>Parallel processing in R</title>
+   <link href="/2015/08/18/Parallel%20processing%20in%20R.html"/>
+   <updated>2015-08-18T00:00:00-05:00</updated>
+   <id>/2015/08/18/Parallel processing in R</id>
+   <content type="html">&lt;p&gt;The CRAN Task View for &lt;a href=&quot;https://cran.r-project.org/web/views/HighPerformanceComputing.html&quot;&gt;high performance and parallel computing&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;Most of these packages cite or identify one or more of snow, Rmpi, multicore, foreach as relevant parallelization infratructure.&lt;/p&gt;
+
+&lt;p&gt;Configure R session to always use a particular back-end configure &lt;code&gt;options(MulticoreParam=quote(MulticoreParam(workers=4)))&lt;/code&gt;&lt;/p&gt;
+
+</content>
+ </entry>
+ 
+ <entry>
+   <title>Shiny recap</title>
    <link href="/2015/08/09/Shiny%20recap.html"/>
    <updated>2015-08-09T00:00:00-05:00</updated>
    <id>/2015/08/09/Shiny recap</id>
    <content type="html">&lt;ul&gt;
   &lt;li&gt;
-    &lt;p&gt;comments for javascript is &lt;code&gt;\\&lt;/code&gt;&lt;/p&gt;
+    &lt;p&gt;ui.r
+Input function, such as &lt;code&gt;sliderInput()&lt;/code&gt;
+Output function, such as &lt;code&gt;plotOutput()&lt;/code&gt;, used collaboratively with ‘render*’ functions&lt;/p&gt;
   &lt;/li&gt;
   &lt;li&gt;
-    &lt;p&gt;basic syntax for javascript: &lt;code&gt;&quot;cake&quot;.length&lt;/code&gt;&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;javascript
-    &lt;ul&gt;
-      &lt;li&gt;websites that responde to user interaction, example: &lt;code&gt;confirm(&quot;...&quot;)&lt;/code&gt;, &lt;code&gt;promot(&quot;...&quot;)&lt;/code&gt;&lt;/li&gt;
-      &lt;li&gt;build apps and games&lt;/li&gt;
-      &lt;li&gt;access information on the internet (query?)&lt;/li&gt;
-      &lt;li&gt;data visualization&lt;/li&gt;
-    &lt;/ul&gt;
+    &lt;p&gt;server.r
+&lt;code&gt;server &amp;lt;- function(input, output){}&lt;/code&gt;; Save output to output variable via &lt;code&gt;ouput$variable&lt;/code&gt;; Use render function to generate output; can access the input via &lt;code&gt;input$variable&lt;/code&gt;&lt;/p&gt;
   &lt;/li&gt;
   &lt;li&gt;
-    &lt;p&gt;strings with quote, numbers without quote&lt;/p&gt;
+    &lt;p&gt;reactive functions
+used in server.r, within the functions, pure R script, reactive to users input&lt;/p&gt;
   &lt;/li&gt;
   &lt;li&gt;
-    &lt;p&gt;&lt;code&gt;console.log()&lt;/code&gt;, print out whatever is in the parentheses.&lt;/p&gt;
+    &lt;p&gt;render*()
+used within server.r, generate output for elements specified in ui.r, such as &lt;code&gt;renderPlot&lt;/code&gt;&lt;/p&gt;
   &lt;/li&gt;
   &lt;li&gt;
-    &lt;p&gt;’===’ equals to; ‘!==’ not equal to&lt;/p&gt;
+    &lt;p&gt;page layout functions 
+functions that are used to construct the layout of a page, such as &lt;code&gt;fluidPage()&lt;/code&gt;&lt;/p&gt;
   &lt;/li&gt;
-  &lt;li&gt;if statement syntax&lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Interface builder functions
+Include html, css, javascript within shiny, functions like&lt;/p&gt;
+  &lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;pre&gt;&lt;code class=&quot;language-javascript&quot;&gt;if ( &quot;Leo&quot;.length&amp;lt;4) {
-    console.log(&quot;You have a short name!&quot; );
-}
-else {
-    console.log(&quot;You have a short name!&quot;);  
-}
+&lt;pre&gt;&lt;code&gt;HTML()
+tag()
+include()
 &lt;/code&gt;&lt;/pre&gt;
 
 &lt;ul&gt;
-  &lt;li&gt;
-    &lt;p&gt;substring: &lt;code&gt;&quot;wonderfulday&quot;.substring(3,7)&lt;/code&gt;&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;declare a variable: &lt;code&gt;var myAge = 20&lt;/code&gt;;&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;declaration of a function:&lt;/p&gt;
-  &lt;/li&gt;
+  &lt;li&gt;Shiny dashboard
+A shiny flavor implementation of &lt;a href=&quot;https://almsaeedstudio.com/&quot;&gt;AdminLTE&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;pre&gt;&lt;code&gt;var greeting = function (name) {
-    console.log(&quot;Great to see you,&quot; + &quot; &quot; + name);
-};
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;
-    &lt;p&gt;concatenate strings using ‘+’&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;put semicolon at end of each line and each function&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;return a value rather than print to screen;&lt;/p&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;pre&gt;&lt;code&gt;var timesTwo = function(number) {
-    return number * 2;
-};
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;
-    &lt;p&gt;&lt;code&gt;var&lt;/code&gt; use only the varibale that is in current scope (global or local)&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;&lt;code&gt;math.random()&lt;/code&gt;, generate a random number between 0 and 1;&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;for loop syntax in javascript:&lt;/p&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;pre&gt;&lt;code&gt;for (var counter = 1; counter &amp;lt; 6; counter++) {
-    console.log(counter);
-}
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;
-    &lt;p&gt;&lt;code&gt;i++, i--, +=, -=&lt;/code&gt;&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;array in javascript: &lt;code&gt;var arrayName = [data, data, data];&lt;/code&gt;
-can be accessed via &lt;code&gt;[index]&lt;/code&gt;&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;wrap long text using ‘&#39; in the end of sentence.&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;&lt;code&gt;push&lt;/code&gt; is a method for array, to push the thing in ‘()’ to the array.&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;while statememt:&lt;/p&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;pre&gt;&lt;code&gt;while(coinFace === 0){
-    console.log(&quot;Heads! Flipping again...&quot;);
-    var coinFace = Math.floor(Math.random() * 2);
-}
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;do/while loop, execute at least once;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;pre&gt;&lt;code&gt;var loopCondition = false;
-
-do {
-    console.log(&quot;I&#39;m gonna stop looping &#39;cause my condition is &quot; + loopCondition + &quot;!&quot;);    
-} while (loopCondition);
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;
-    &lt;p&gt;isNaN: is not a number;&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;switch case&lt;/p&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;pre&gt;&lt;code&gt;var lunch = prompt(&quot;What do you want for lunch?&quot;,&quot;Type your lunch choice here&quot;);
-
-switch(lunch){
-  case &#39;sandwich&#39;:
-    console.log(&quot;Sure thing! One sandwich, coming up.&quot;);
-    break;
-  case &#39;soup&#39;:
-    console.log(&quot;Got it! Tomato&#39;s my favorite.&quot;);
-    break;
-  case &#39;salad&#39;:
-    console.log(&quot;Sounds good! How about a caesar salad?&quot;);
-    break;
-  case &#39;pie&#39;:
-    console.log(&quot;Pie&#39;s not a meal!&quot;);
-    break;
-  default:
-    console.log(&quot;Huh! I&#39;m not sure what &quot; + lunch + &quot; is. How does a sandwich sound?&quot;);
-}
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;
-    &lt;table&gt;
-      &lt;tbody&gt;
-        &lt;tr&gt;
-          &lt;td&gt;logical operators: (&amp;amp;&amp;amp;), (&lt;/td&gt;
-          &lt;td&gt; &lt;/td&gt;
-          &lt;td&gt;), (!)&lt;/td&gt;
-        &lt;/tr&gt;
-      &lt;/tbody&gt;
-    &lt;/table&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;toUpperCase() and toLowerCase()&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;heterogenous arrays and arrays inside of arrays; if the dimension is not the same, then it’s jagged arrays;&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;creat one object:&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;pre&gt;&lt;code&gt;var myObject = {
-    key: value,
-    key: value,
-    key: value
-};
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;example&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;var phonebookEntry = {};
-
-phonebookEntry.name = &#39;Oxnard Montalvo&#39;;
-phonebookEntry.number = &#39;(555) 555-5555&#39;;
-phonebookEntry.phone = function() {
-  console.log(&#39;Calling &#39; + this.name + &#39; at &#39; + this.number + &#39;...&#39;);
-};
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;can also be custructed via&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;var myObj = new Object();
-myObj[&quot;name&quot;] = &quot;Charlie&quot;;
-myObj.name = &quot;Charlie&quot;;
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;
-    &lt;p&gt;javascirpt is also oop. &lt;code&gt;object.method = function(){};&lt;/code&gt;&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;The &lt;code&gt;this&lt;/code&gt; keyword; Can be used for any object;&lt;/p&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;pre&gt;&lt;code&gt;var setAge = function (newAge) {
-  this.age = newAge;
-};
-&lt;/code&gt;&lt;/pre&gt;
-
+&lt;p&gt;Details can be found from the shiny reference &lt;a href=&quot;http://shiny.rstudio.com/reference/shiny/latest/&quot;&gt;website&lt;/a&gt;&lt;/p&gt;
 </content>
  </entry>
  
@@ -764,7 +606,17 @@ untracked —– tracked/stage —— commit&lt;/p&gt;
 git status
 git add
 git commit -m &quot;&quot;
+git push -u origin master
 git log
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Pull and merge, pull is basically fetch and merge&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;git fetch origin pull/ID/head: branchname
+git chekcout branchname
+git merge 
+git mergetool
+git push 
 &lt;/code&gt;&lt;/pre&gt;
 
 </content>
@@ -1065,15 +917,6 @@ mogsa: Multiple omics data integration and gene set analysis &lt;a href=&quot;ht
 希望能做跟bioinformatics相关的，这样的话选择余地就小了很多，现在这方面最好的公司还是illumina，其他的选择还有各大药厂。
 另外一个选择就是去做data science，基本也就远离了生物，纯粹去做分析，挣的钱当然会比bioinformatics要多。而且工作机会也会多一些。
 我觉得我需要去找实习都去体验一下。data science和bioinformatics， 然后确定自己想要做的方向和职业规划。PS:（刚刚得到消息， 我写的第一个package要被Bioconductor接受啦！）&lt;/p&gt;
-</content>
- </entry>
- 
- <entry>
-   <title>收到Bioconductor年会的travel award</title>
-   <link href="/2015/06/17/%E5%88%B0Bioconductor%E5%B9%B4%E4%BC%9A%E7%9A%84travel%20award%20-%20Copy.html"/>
-   <updated>2015-06-17T00:00:00-05:00</updated>
-   <id>/2015/06/17/到Bioconductor年会的travel award - Copy</id>
-   <content type="html">&lt;p&gt;最近刚刚收到Bioconductor 年会的travel award。有点小小的惊喜，毕竟最开始只是以试试的态度申请的，想必应该有挺多人去这个年会的。我也算是有幸能够目睹下Bioconductor本部啦。还有最近‘认识’了一位牛人，Hadley Wickham。dplyr 和 stringr都是出自此人之手； 统计PhD毕业，写代码的功夫也算了得。现在在Rstudio工作。&lt;/p&gt;
 </content>
  </entry>
  
