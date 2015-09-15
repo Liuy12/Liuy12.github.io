@@ -4,7 +4,7 @@
  <title>Takes time to be twisted, or not</title>
  <link href="/atom.xml" rel="self"/>
  <link href=""/>
- <updated>2015-09-13T12:03:45-05:00</updated>
+ <updated>2015-09-15T00:16:17-05:00</updated>
  <id></id>
  <author>
    <name>Yuanhang Liu</name>
@@ -16,11 +16,32 @@
    <link href="/2015/08/18/Parallel%20processing%20in%20R.html"/>
    <updated>2015-08-18T00:00:00-05:00</updated>
    <id>/2015/08/18/Parallel processing in R</id>
-   <content type="html">&lt;p&gt;The CRAN Task View for &lt;a href=&quot;https://cran.r-project.org/web/views/HighPerformanceComputing.html&quot;&gt;high performance and parallel computing&lt;/a&gt;&lt;/p&gt;
+   <content type="html">&lt;h1 id=&quot;overview&quot;&gt;Overview&lt;/h1&gt;
 
-&lt;p&gt;Most of these packages cite or identify one or more of snow, Rmpi, multicore, foreach as relevant parallelization infratructure.&lt;/p&gt;
+&lt;p&gt;The CRAN Task View for &lt;a href=&quot;https://cran.r-project.org/web/views/HighPerformanceComputing.html&quot;&gt;high performance and parallel computing&lt;/a&gt;&lt;/p&gt;
 
-&lt;p&gt;Configure R session to always use a particular back-end configure &lt;code&gt;options(MulticoreParam=quote(MulticoreParam(workers=4)))&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;Most of these packages cite or identify one or more of &lt;a href=&quot;https://cran.r-project.org/web/packages/snow/index.html&quot;&gt;snow&lt;/a&gt;, &lt;a href=&quot;https://cran.r-project.org/web/packages/Rmpi/index.html&quot;&gt;Rmpi&lt;/a&gt;, multicore, &lt;a href=&quot;https://cran.r-project.org/web/packages/foreach/index.html&quot;&gt;foreach&lt;/a&gt; as relevant parallelization infratructure. Here we will focus on snow, multicore and parallel (Basically a combination of snow and multicore) packages&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;snow: 
+Simple Network of Workstations, parallel processing is made possible Via &lt;code&gt;system(&quot;Rscript&quot;)&lt;/code&gt; or similar to launch a new process on the current machine or a similar machine with an identical R installation. Communication between master and worker processes is usually done via sockets. snow also takes advantage of fork and Rmpi mensioned below.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;multicore:
+Parallel processing is made possible by forking, which creates a new R process by taking a complete copy of the master process.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Rmpi:
+Using OS-level facilities to set up a means to send tasks to other members of a group of machines.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;code&gt;detectCores&lt;/code&gt; is function used to detect number of phisical cores/CPUs in a system. The result is system dependent.&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h1 id=&quot;parallelized-replacements-of-apply-functions&quot;&gt;Parallelized replacements of apply functions&lt;/h1&gt;
+&lt;p&gt;Parallel version of apply function, including &lt;code&gt;parLapply, parSapply, parApply, mclapply&lt;/code&gt; ect.&lt;/p&gt;
 
 </content>
  </entry>
@@ -893,17 +914,30 @@ mogsa: Multiple omics data integration and gene set analysis &lt;a href=&quot;ht
    <id>/2015/06/27/Applied predictive modeling</id>
    <content type="html">&lt;h1 id=&quot;data-preprocessing&quot;&gt;Data preprocessing&lt;/h1&gt;
 
-&lt;p&gt;Centering and scaling&lt;/p&gt;
+&lt;h3 id=&quot;centering-and-scaling&quot;&gt;Centering and scaling&lt;/h3&gt;
+
+&lt;p&gt;Centering and scaling are generally used to improve numerical stability of some calculations&lt;/p&gt;
 
 &lt;ul&gt;
   &lt;li&gt;PLS might benefit from centering and scaling&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;p&gt;Transformation&lt;/p&gt;
+&lt;h3 id=&quot;transformation&quot;&gt;Transformation&lt;/h3&gt;
+
+&lt;p&gt;Transformation is generally used to remove skewness&lt;/p&gt;
 
 &lt;ul&gt;
-  &lt;li&gt;log, inverse, square root, box-cox&lt;/li&gt;
+  &lt;li&gt;log, inverse, square root transformation.&lt;/li&gt;
 &lt;/ul&gt;
+
+&lt;p&gt;Box-cox transformation:&lt;/p&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;% &lt;![CDATA[
+x^* =
+\begin{cases}
+\frac{x^\lambda - 1}{\lambda},  &amp; \text{if $\lambda$ $\neq$ 0} \\
+log(x), &amp; \text{if $\lambda$ = 0}
+\end{cases} %]]&gt;&lt;/script&gt;
 
 </content>
  </entry>

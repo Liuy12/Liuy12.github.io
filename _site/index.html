@@ -73,11 +73,32 @@
     <!-- END this would not work on any other domain -->
     </section>
     <section class="post">
-    <p>The CRAN Task View for <a href="https://cran.r-project.org/web/views/HighPerformanceComputing.html">high performance and parallel computing</a></p>
+    <h1 id="overview">Overview</h1>
 
-<p>Most of these packages cite or identify one or more of snow, Rmpi, multicore, foreach as relevant parallelization infratructure.</p>
+<p>The CRAN Task View for <a href="https://cran.r-project.org/web/views/HighPerformanceComputing.html">high performance and parallel computing</a></p>
 
-<p>Configure R session to always use a particular back-end configure <code>options(MulticoreParam=quote(MulticoreParam(workers=4)))</code></p>
+<p>Most of these packages cite or identify one or more of <a href="https://cran.r-project.org/web/packages/snow/index.html">snow</a>, <a href="https://cran.r-project.org/web/packages/Rmpi/index.html">Rmpi</a>, multicore, <a href="https://cran.r-project.org/web/packages/foreach/index.html">foreach</a> as relevant parallelization infratructure. Here we will focus on snow, multicore and parallel (Basically a combination of snow and multicore) packages</p>
+
+<ul>
+  <li>
+    <p>snow: 
+Simple Network of Workstations, parallel processing is made possible Via <code>system("Rscript")</code> or similar to launch a new process on the current machine or a similar machine with an identical R installation. Communication between master and worker processes is usually done via sockets. snow also takes advantage of fork and Rmpi mensioned below.</p>
+  </li>
+  <li>
+    <p>multicore:
+Parallel processing is made possible by forking, which creates a new R process by taking a complete copy of the master process.</p>
+  </li>
+  <li>
+    <p>Rmpi:
+Using OS-level facilities to set up a means to send tasks to other members of a group of machines.</p>
+  </li>
+  <li>
+    <p><code>detectCores</code> is function used to detect number of phisical cores/CPUs in a system. The result is system dependent.</p>
+  </li>
+</ul>
+
+<h1 id="parallelized-replacements-of-apply-functions">Parallelized replacements of apply functions</h1>
+<p>Parallel version of apply function, including <code>parLapply, parSapply, parApply, mclapply</code> ect.</p>
 
 
     </section>

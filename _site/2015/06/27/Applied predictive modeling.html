@@ -64,17 +64,30 @@
   <section class="post">
   <h1 id="data-preprocessing">Data preprocessing</h1>
 
-<p>Centering and scaling</p>
+<h3 id="centering-and-scaling">Centering and scaling</h3>
+
+<p>Centering and scaling are generally used to improve numerical stability of some calculations</p>
 
 <ul>
   <li>PLS might benefit from centering and scaling</li>
 </ul>
 
-<p>Transformation</p>
+<h3 id="transformation">Transformation</h3>
+
+<p>Transformation is generally used to remove skewness</p>
 
 <ul>
-  <li>log, inverse, square root, box-cox</li>
+  <li>log, inverse, square root transformation.</li>
 </ul>
+
+<p>Box-cox transformation:</p>
+
+<script type="math/tex; mode=display">% <![CDATA[
+x^* =
+\begin{cases}
+\frac{x^\lambda - 1}{\lambda},  & \text{if $\lambda$ $\neq$ 0} \\
+log(x), & \text{if $\lambda$ = 0}
+\end{cases} %]]></script>
 
 
   </section>

@@ -6,9 +6,28 @@ tags:
     - Parallel processing
 ---
 
+# Overview
+
 The CRAN Task View for [high performance and parallel computing](https://cran.r-project.org/web/views/HighPerformanceComputing.html)
 
-Most of these packages cite or identify one or more of snow, Rmpi, multicore, foreach as relevant parallelization infratructure. 
+Most of these packages cite or identify one or more of [snow](https://cran.r-project.org/web/packages/snow/index.html), [Rmpi](https://cran.r-project.org/web/packages/Rmpi/index.html), multicore, [foreach](https://cran.r-project.org/web/packages/foreach/index.html) as relevant parallelization infratructure. Here we will focus on snow, multicore and parallel (Basically a combination of snow and multicore) packages
 
-Configure R session to always use a particular back-end configure `options(MulticoreParam=quote(MulticoreParam(workers=4)))`
+- snow: 
+Simple Network of Workstations, parallel processing is made possible Via `system("Rscript")` or similar to launch a new process on the current machine or a similar machine with an identical R installation. Communication between master and worker processes is usually done via sockets. snow also takes advantage of fork and Rmpi mensioned below.
+
+- multicore:
+Parallel processing is made possible by forking, which creates a new R process by taking a complete copy of the master process.
+
+- Rmpi:
+Using OS-level facilities to set up a means to send tasks to other members of a group of machines.
+
+- `detectCores` is function used to detect number of phisical cores/CPUs in a system. The result is system dependent. 
+
+# Parallelized replacements of apply functions
+Parallel version of apply function, including `parLapply, parSapply, parApply, mclapply` ect. 
+
+
+
+
+
 
