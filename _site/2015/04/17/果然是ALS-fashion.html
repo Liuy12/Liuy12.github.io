@@ -15,7 +15,7 @@
     <meta http-equiv="content-type" content="text/html; charset=utf-8" />
     <meta name="author" content="Yuanhang Liu" />
     
-    <title>StochasticvsDeterministic</title>
+    <title>果然是ALS fashion</title>
     
     <link rel="shortcut icon" href="/favicon.ico">
     <link href="/atom.xml" rel="alternate" title="Takes time to be twisted, or not" type="application/atom+xml" />
@@ -47,24 +47,33 @@
         <div id="content">
         <article>
   <section class="title">
-    <h2>StochasticvsDeterministic </h2>
+    <h2>果然是ALS fashion </h2>
   </section>
   <section class="meta">
   <span class="time">
-    <time datetime="2015-07-08">2015-07-08</time>
+    <time datetime="2015-04-17">2015-04-17</time>
   </span>
   
   <span class="tags">
     
-    <a href="/tags.html#Model thinking" title="Model thinking">#Model thinking</a>
+    <a href="/tags.html#machine learning" title="machine learning">#machine learning</a>
+    
+    <a href="/tags.html#personalized medicine" title="personalized medicine">#personalized medicine</a>
     
   </span>
   
   </section>
   <section class="post">
-  <p>A deterministic model没有stochastic的成分，input和output的关系是完全确定的。比如说linear regression或者non-linear的curve fitting都是属于determininistic model。Stochastic model，包含了randomness，同样的input会导致不同样的output，不同的statistical distribution, MCMC的simulation都属于stochastic process。</p>
+  <p>最近读了一篇nature biotechnology的paper，title是’Crowdsourced analysis of clinical trial data to predict amyotrophic sclerosis progression’. 最开始读这篇文章是抱着主办者网站上说的1 million prize去的，没想到居然被坑，最后发现其实也只有区区5万。</p>
 
-<p>source: <a href="http://www.slideshare.net/sohail40/deterministic-vs-stochastic">http://www.slideshare.net/sohail40/deterministic-vs-stochastic</a></p>
+<p>抱着失落的心情读完文章之后就更失望了。 首先， 他们所谓的clinical feature的data其实是不包括genetic oriented measurements，像gene expression, cnv 等等。 其次， 所有团队用的方法都比较传统（BART的方法可能新一点， 值得一看），基本都是random forest的变体。而且，参赛team只少简直令人发指！（最后仅仅10人提交了有效的code），想想都还不如放在kaggle上去host。 看过文章之后，总体来讲有那么些疑问：</p>
+
+<ul>
+  <li>用前3个月的clinical feature去predict后9个月的progression，这个system design到底有没有问题（比如说input的时候，有些patient可能已经在fast progression阶段，或者已经完成fast progression 的过程， 对于这些patients，似乎没有必要加入到training model里面）</li>
+  <li>我还是不太明白他的linear random effects model 是怎么work的（回头看看他的code）</li>
+</ul>
+
+<p>如果能找到关于ALS的gene expression的time course data就太好了！</p>
 
   </section>
   

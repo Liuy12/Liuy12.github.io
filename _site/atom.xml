@@ -4,7 +4,7 @@
  <title>Takes time to be twisted, or not</title>
  <link href="/atom.xml" rel="self"/>
  <link href=""/>
- <updated>2015-09-15T00:16:17-05:00</updated>
+ <updated>2016-04-01T17:44:11-05:00</updated>
  <id></id>
  <author>
    <name>Yuanhang Liu</name>
@@ -12,8 +12,31 @@
 
  
  <entry>
+   <title>基因的显隐性和人类基因组</title>
+   <link href="/2016/04/01/The-human-reference-genome.html"/>
+   <updated>2016-04-01T00:00:00-05:00</updated>
+   <id>/2016/04/01/The human reference genome</id>
+   <content type="html">&lt;p&gt;今天突然想到一个以前非常忽视的一个问题，这个问题涉及到显隐性遗传，最后涉及到人类基因组序列。首先人类是二倍体生物，也就是说每一个基因都会有两个拷贝，基因决定形状，所以决定某一性状的这一对基因就叫做等位基因（allele）。等位基因可以纯合子（homozygous）或者杂合子 (heterozygous) （也就是高中生物所教的AA，Aa）。纯合子的这一对等位基因序列相同，杂合子的不同。等位基因的这个特点决定了基因的显隐性遗传。&lt;/p&gt;
+
+&lt;p&gt;这就牵扯到另外一个问题，因为一对杂合的等位基因的序列不同，所以最后要以哪个序列作为人类的参照基因组呢。&lt;/p&gt;
+
+&lt;p&gt;要回答这个问题首先要了解人类基因组的测序的方法。到现在为止，人类的基因组其实只是选取了某一部分群体（貌似是十几个美国人）的DNA来做全基因组的测序。具体到测序方法，叫做clone-based (or hierarchical) approach。首先把一个个体的DNA打断为长度给40000-200000长度的片段，然后插入到质粒当中（比如bacterial artificial chromesome （BACs））。然后把质粒转入bacteria中扩增，然后运用NGS的方法进行测序。 就这样测出来的一个clone的序列叫做component。在测了很多clone的序列得到很多components之后，运用方法将这些component连接起来，最后组成一个长序列，叫做scaffolds。之后在运用方法将scaffolds连接成为染色体。&lt;/p&gt;
+
+&lt;p&gt;所以说人类的基因组是好多个基因组的混合体（conglomeration）。也就没办法去区分序列到底是来自哪个allele了。这个问题还是需要解决的，因为并不是所有的基因两个allele的序列都是一样的，甚至两个allele都是表达的。但目前没有太好的解决办法。人类基因组目前也只是在某些区间会有定义为alternative loci（这些区间的序列在不同的人中区别太大，没法用一个序列来代表）。&lt;/p&gt;
+
+&lt;h1 id=&quot;reference&quot;&gt;Reference&lt;/h1&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;&lt;a href=&quot;http://ncbiinsights.ncbi.nlm.nih.gov/2013/06/05/the-human-reference-genome-understanding-the-new-genome-assemblies/&quot;&gt;http://ncbiinsights.ncbi.nlm.nih.gov/2013/06/05/the-human-reference-genome-understanding-the-new-genome-assemblies/&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;http://www.ncbi.nlm.nih.gov/assembly/basics/&quot;&gt;http://www.ncbi.nlm.nih.gov/assembly/basics/&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;http://www.ncbi.nlm.nih.gov/projects/genome/assembly/grc/human/&quot;&gt;http://www.ncbi.nlm.nih.gov/projects/genome/assembly/grc/human/&lt;/a&gt;&lt;/li&gt;
+&lt;/ol&gt;
+</content>
+ </entry>
+ 
+ <entry>
    <title>Parallel processing in R</title>
-   <link href="/2015/08/18/Parallel%20processing%20in%20R.html"/>
+   <link href="/2015/08/18/Parallel-processing-in-R.html"/>
    <updated>2015-08-18T00:00:00-05:00</updated>
    <id>/2015/08/18/Parallel processing in R</id>
    <content type="html">&lt;h1 id=&quot;overview&quot;&gt;Overview&lt;/h1&gt;
@@ -48,7 +71,7 @@ Using OS-level facilities to set up a means to send tasks to other members of a 
  
  <entry>
    <title>Shiny recap</title>
-   <link href="/2015/08/09/Shiny%20recap.html"/>
+   <link href="/2015/08/09/Shiny-recap.html"/>
    <updated>2015-08-09T00:00:00-05:00</updated>
    <id>/2015/08/09/Shiny recap</id>
    <content type="html">&lt;ul&gt;
@@ -610,7 +633,7 @@ margin-right: /*some value*/
  
  <entry>
    <title>git essentials</title>
-   <link href="/2015/08/04/git%20esentials.html"/>
+   <link href="/2015/08/04/git-esentials.html"/>
    <updated>2015-08-04T00:00:00-05:00</updated>
    <id>/2015/08/04/git esentials</id>
    <content type="html">&lt;p&gt;configure user name/email and color.ui&lt;/p&gt;
@@ -645,7 +668,7 @@ git push
  
  <entry>
    <title>Comparison of differential expression methods for RNA-seq</title>
-   <link href="/2015/08/02/Comparison%20of%20differential%20expression%20methods.html"/>
+   <link href="/2015/08/02/Comparison-of-differential-expression-methods.html"/>
    <updated>2015-08-02T00:00:00-05:00</updated>
    <id>/2015/08/02/Comparison of differential expression methods</id>
    <content type="html">&lt;p&gt;This is mainly the summary results from ‘Comprehensive evaluation of differential gene expression analysis methods for RNA-seq data’ &lt;a href=&quot;http://www.genomebiology.com/2013/14/9/r95#B27&quot;&gt;http://www.genomebiology.com/2013/14/9/r95#B27&lt;/a&gt;.&lt;/p&gt;
@@ -909,7 +932,7 @@ mogsa: Multiple omics data integration and gene set analysis &lt;a href=&quot;ht
  
  <entry>
    <title>Applied predictive modeling</title>
-   <link href="/2015/06/27/Applied%20predictive%20modeling.html"/>
+   <link href="/2015/06/27/Applied-predictive-modeling.html"/>
    <updated>2015-06-27T00:00:00-05:00</updated>
    <id>/2015/06/27/Applied predictive modeling</id>
    <content type="html">&lt;h1 id=&quot;data-preprocessing&quot;&gt;Data preprocessing&lt;/h1&gt;
@@ -939,18 +962,6 @@ x^* =
 log(x), &amp; \text{if $\lambda$ = 0}
 \end{cases} %]]&gt;&lt;/script&gt;
 
-</content>
- </entry>
- 
- <entry>
-   <title>职业选择</title>
-   <link href="/2015/06/25/%E8%81%8C%E4%B8%9A%E9%80%89%E6%8B%A9.html"/>
-   <updated>2015-06-25T00:00:00-05:00</updated>
-   <id>/2015/06/25/职业选择</id>
-   <content type="html">&lt;p&gt;最近跟Frank聊天，谈到以后的职业规划，我也一直在想，现在能确定的就是我不会去读post-doc， 除非能拿到top school的offer。 
-希望能做跟bioinformatics相关的，这样的话选择余地就小了很多，现在这方面最好的公司还是illumina，其他的选择还有各大药厂。
-另外一个选择就是去做data science，基本也就远离了生物，纯粹去做分析，挣的钱当然会比bioinformatics要多。而且工作机会也会多一些。
-我觉得我需要去找实习都去体验一下。data science和bioinformatics， 然后确定自己想要做的方向和职业规划。PS:（刚刚得到消息， 我写的第一个package要被Bioconductor接受啦！）&lt;/p&gt;
 </content>
  </entry>
  

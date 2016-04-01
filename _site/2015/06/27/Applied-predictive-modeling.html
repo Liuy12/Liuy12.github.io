@@ -15,7 +15,7 @@
     <meta http-equiv="content-type" content="text/html; charset=utf-8" />
     <meta name="author" content="Yuanhang Liu" />
     
-    <title>StochasticvsDeterministic</title>
+    <title>Applied predictive modeling</title>
     
     <link rel="shortcut icon" href="/favicon.ico">
     <link href="/atom.xml" rel="alternate" title="Takes time to be twisted, or not" type="application/atom+xml" />
@@ -47,24 +47,48 @@
         <div id="content">
         <article>
   <section class="title">
-    <h2>StochasticvsDeterministic </h2>
+    <h2>Applied predictive modeling </h2>
   </section>
   <section class="meta">
   <span class="time">
-    <time datetime="2015-07-08">2015-07-08</time>
+    <time datetime="2015-06-27">2015-06-27</time>
   </span>
   
   <span class="tags">
     
-    <a href="/tags.html#Model thinking" title="Model thinking">#Model thinking</a>
+    <a href="/tags.html#machine learning" title="machine learning">#machine learning</a>
     
   </span>
   
   </section>
   <section class="post">
-  <p>A deterministic model没有stochastic的成分，input和output的关系是完全确定的。比如说linear regression或者non-linear的curve fitting都是属于determininistic model。Stochastic model，包含了randomness，同样的input会导致不同样的output，不同的statistical distribution, MCMC的simulation都属于stochastic process。</p>
+  <h1 id="data-preprocessing">Data preprocessing</h1>
 
-<p>source: <a href="http://www.slideshare.net/sohail40/deterministic-vs-stochastic">http://www.slideshare.net/sohail40/deterministic-vs-stochastic</a></p>
+<h3 id="centering-and-scaling">Centering and scaling</h3>
+
+<p>Centering and scaling are generally used to improve numerical stability of some calculations</p>
+
+<ul>
+  <li>PLS might benefit from centering and scaling</li>
+</ul>
+
+<h3 id="transformation">Transformation</h3>
+
+<p>Transformation is generally used to remove skewness</p>
+
+<ul>
+  <li>log, inverse, square root transformation.</li>
+</ul>
+
+<p>Box-cox transformation:</p>
+
+<script type="math/tex; mode=display">% <![CDATA[
+x^* =
+\begin{cases}
+\frac{x^\lambda - 1}{\lambda},  & \text{if $\lambda$ $\neq$ 0} \\
+log(x), & \text{if $\lambda$ = 0}
+\end{cases} %]]></script>
+
 
   </section>
   

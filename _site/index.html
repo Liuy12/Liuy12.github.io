@@ -50,21 +50,21 @@
   
   <article class="content">
     <section class="title">
-      <h2><a href="/2015/08/18/Parallel%20processing%20in%20R.html">Parallel processing in R</a></h2>
+      <h2><a href="/2016/04/01/The-human-reference-genome.html">基因的显隐性和人类基因组</a></h2>
     </section>
     <section class="meta">
     <span class="time">
-      <time datetime="2015-08-18">2015-08-18</time>
+      <time datetime="2016-04-01">2016-04-01</time>
     </span>
     
     <span class="tags">
       
-      <a href="/tags.html#Parallel processing" title="Parallel processing">#Parallel processing</a>
+      <a href="/tags.html#Genomics" title="Genomics">#Genomics</a>
       
     </span>
     
     <!-- BEGIN this would not work on any other domain -->
-    <span class="like-wrapper" like-shortname="gopherwood" like-identifier="" like-name="Parallel processing in R" like-link="/index.html" like-btn="&#xf087;"></span>
+    <span class="like-wrapper" like-shortname="gopherwood" like-identifier="" like-name="基因的显隐性和人类基因组" like-link="/" like-btn="&#xf087;"></span>
     <script type="text/javascript">
       var l = document.createElement('script'); l.type = 'text/javascript'; l.async = true;
       l.src = 'http://www.like-btn.com/javascript/widget.js';
@@ -73,33 +73,21 @@
     <!-- END this would not work on any other domain -->
     </section>
     <section class="post">
-    <h1 id="overview">Overview</h1>
+    <p>今天突然想到一个以前非常忽视的一个问题，这个问题涉及到显隐性遗传，最后涉及到人类基因组序列。首先人类是二倍体生物，也就是说每一个基因都会有两个拷贝，基因决定形状，所以决定某一性状的这一对基因就叫做等位基因（allele）。等位基因可以纯合子（homozygous）或者杂合子 (heterozygous) （也就是高中生物所教的AA，Aa）。纯合子的这一对等位基因序列相同，杂合子的不同。等位基因的这个特点决定了基因的显隐性遗传。</p>
 
-<p>The CRAN Task View for <a href="https://cran.r-project.org/web/views/HighPerformanceComputing.html">high performance and parallel computing</a></p>
+<p>这就牵扯到另外一个问题，因为一对杂合的等位基因的序列不同，所以最后要以哪个序列作为人类的参照基因组呢。</p>
 
-<p>Most of these packages cite or identify one or more of <a href="https://cran.r-project.org/web/packages/snow/index.html">snow</a>, <a href="https://cran.r-project.org/web/packages/Rmpi/index.html">Rmpi</a>, multicore, <a href="https://cran.r-project.org/web/packages/foreach/index.html">foreach</a> as relevant parallelization infratructure. Here we will focus on snow, multicore and parallel (Basically a combination of snow and multicore) packages</p>
+<p>要回答这个问题首先要了解人类基因组的测序的方法。到现在为止，人类的基因组其实只是选取了某一部分群体（貌似是十几个美国人）的DNA来做全基因组的测序。具体到测序方法，叫做clone-based (or hierarchical) approach。首先把一个个体的DNA打断为长度给40000-200000长度的片段，然后插入到质粒当中（比如bacterial artificial chromesome （BACs））。然后把质粒转入bacteria中扩增，然后运用NGS的方法进行测序。 就这样测出来的一个clone的序列叫做component。在测了很多clone的序列得到很多components之后，运用方法将这些component连接起来，最后组成一个长序列，叫做scaffolds。之后在运用方法将scaffolds连接成为染色体。</p>
 
-<ul>
-  <li>
-    <p>snow: 
-Simple Network of Workstations, parallel processing is made possible Via <code>system("Rscript")</code> or similar to launch a new process on the current machine or a similar machine with an identical R installation. Communication between master and worker processes is usually done via sockets. snow also takes advantage of fork and Rmpi mensioned below.</p>
-  </li>
-  <li>
-    <p>multicore:
-Parallel processing is made possible by forking, which creates a new R process by taking a complete copy of the master process.</p>
-  </li>
-  <li>
-    <p>Rmpi:
-Using OS-level facilities to set up a means to send tasks to other members of a group of machines.</p>
-  </li>
-  <li>
-    <p><code>detectCores</code> is function used to detect number of phisical cores/CPUs in a system. The result is system dependent.</p>
-  </li>
-</ul>
+<p>所以说人类的基因组是好多个基因组的混合体（conglomeration）。也就没办法去区分序列到底是来自哪个allele了。这个问题还是需要解决的，因为并不是所有的基因两个allele的序列都是一样的，甚至两个allele都是表达的。但目前没有太好的解决办法。人类基因组目前也只是在某些区间会有定义为alternative loci（这些区间的序列在不同的人中区别太大，没法用一个序列来代表）。</p>
 
-<h1 id="parallelized-replacements-of-apply-functions">Parallelized replacements of apply functions</h1>
-<p>Parallel version of apply function, including <code>parLapply, parSapply, parApply, mclapply</code> ect.</p>
+<h1 id="reference">Reference</h1>
 
+<ol>
+  <li><a href="http://ncbiinsights.ncbi.nlm.nih.gov/2013/06/05/the-human-reference-genome-understanding-the-new-genome-assemblies/">http://ncbiinsights.ncbi.nlm.nih.gov/2013/06/05/the-human-reference-genome-understanding-the-new-genome-assemblies/</a></li>
+  <li><a href="http://www.ncbi.nlm.nih.gov/assembly/basics/">http://www.ncbi.nlm.nih.gov/assembly/basics/</a></li>
+  <li><a href="http://www.ncbi.nlm.nih.gov/projects/genome/assembly/grc/human/">http://www.ncbi.nlm.nih.gov/projects/genome/assembly/grc/human/</a></li>
+</ol>
 
     </section>
     </article>
@@ -112,123 +100,7 @@ Using OS-level facilities to set up a means to send tasks to other members of a 
   
     
     
-    <li class="listing-item">
-      <time datetime="2015-08-09">2015-08-09</time>
-      <a href="/2015/08/09/Shiny%20recap.html" title="Shiny recap">Shiny recap</a>
-    </li>
-  
     
-    
-    <li class="listing-item">
-      <time datetime="2015-08-06">2015-08-06</time>
-      <a href="/2015/08/06/javascript.html" title="Javascript">Javascript</a>
-    </li>
-  
-    
-    
-    <li class="listing-item">
-      <time datetime="2015-08-04">2015-08-04</time>
-      <a href="/2015/08/04/html&amp;CSS.html" title="HTML&amp;CSS">HTML&amp;CSS</a>
-    </li>
-  
-    
-    
-    <li class="listing-item">
-      <time datetime="2015-08-04">2015-08-04</time>
-      <a href="/2015/08/04/git%20esentials.html" title="git essentials">git essentials</a>
-    </li>
-  
-    
-    
-    <li class="listing-item">
-      <time datetime="2015-08-02">2015-08-02</time>
-      <a href="/2015/08/02/Comparison%20of%20differential%20expression%20methods.html" title="Comparison of differential expression methods for RNA-seq">Comparison of differential expression methods for RNA-seq</a>
-    </li>
-  
-    
-    
-    <li class="listing-item">
-      <time datetime="2015-07-19">2015-07-19</time>
-      <a href="/2015/07/19/BioC2015.html" title="BioC2015">BioC2015</a>
-    </li>
-  
-    
-    
-    <li class="listing-item">
-      <time datetime="2015-07-08">2015-07-08</time>
-      <a href="/2015/07/08/StochasticvsDeterministic.html" title="StochasticvsDeterministic">StochasticvsDeterministic</a>
-    </li>
-  
-    
-    
-    <li class="listing-item">
-      <time datetime="2015-06-27">2015-06-27</time>
-      <a href="/2015/06/27/Applied%20predictive%20modeling.html" title="Applied predictive modeling">Applied predictive modeling</a>
-    </li>
-  
-    
-    
-    <li class="listing-item">
-      <time datetime="2015-06-25">2015-06-25</time>
-      <a href="/2015/06/25/%E8%81%8C%E4%B8%9A%E9%80%89%E6%8B%A9.html" title="职业选择">职业选择</a>
-    </li>
-  
-    
-    
-    <li class="listing-item">
-      <time datetime="2015-06-17">2015-06-17</time>
-      <a href="/2015/06/17/%E5%88%B0Bioconductor%E5%B9%B4%E4%BC%9A%E7%9A%84travel%20award%20-%20Copy.html" title="收到Bioconductor年会的travel award">收到Bioconductor年会的travel award</a>
-    </li>
-  
-    
-    
-    <li class="listing-item">
-      <time datetime="2015-04-29">2015-04-29</time>
-      <a href="/2015/04/29/%E6%9C%89%E4%BA%9B%E4%B8%9C%E8%A5%BF%E4%BD%A0%E5%BE%97%E4%B8%8D%E5%88%B0.html" title="那些所谓的得不到的东西">那些所谓的得不到的东西</a>
-    </li>
-  
-    
-    
-    <li class="listing-item">
-      <time datetime="2015-04-22">2015-04-22</time>
-      <a href="/2015/04/22/Time%20series%20analysis%20and%20its%20applications.html" title="Time series analysis and its applications">Time series analysis and its applications</a>
-    </li>
-  
-    
-    
-    <li class="listing-item">
-      <time datetime="2015-04-21">2015-04-21</time>
-      <a href="/2015/04/21/%E6%8B%9C%E4%BB%81%E5%A4%A7%E8%83%9C%E9%80%86%E8%BD%AC%E6%99%8B%E7%BA%A7.html" title="拜仁大胜逆转晋级">拜仁大胜逆转晋级</a>
-    </li>
-  
-    
-    
-    <li class="listing-item">
-      <time datetime="2015-04-20">2015-04-20</time>
-      <a href="/2015/04/20/Machine%20learning%20%E5%90%84%E7%A7%8D%E4%B8%8D%E5%90%8C%E7%AE%97%E6%B3%95%E7%9A%84%E6%80%BB%E7%BB%93%E5%B8%96%EF%BC%88%E6%8C%81%E7%BB%AD%E6%9B%B4%E6%96%B0%EF%BC%89.html" title="各种不同算法的总结帖（持续更新）">各种不同算法的总结帖（持续更新）</a>
-    </li>
-  
-    
-    
-    <li class="listing-item">
-      <time datetime="2015-04-18">2015-04-18</time>
-      <a href="/2015/04/18/Elements%20of%20statistical%20learning%E4%B8%94%E8%AF%BB%E4%B8%94%E6%84%9F.html" title="Elements of statistical learning且读且感">Elements of statistical learning且读且感</a>
-    </li>
-  
-    
-    
-    <li class="listing-item">
-      <time datetime="2015-04-17">2015-04-17</time>
-      <a href="/2015/04/17/%E6%9E%9C%E7%84%B6%E6%98%AFALS%20fashion.html" title="果然是ALS fashion">果然是ALS fashion</a>
-    </li>
-  
-    
-    
-    <li class="listing-item">
-      <time datetime="2015-04-10">2015-04-10</time>
-      <a href="/2015/04/10/%E7%AC%AC%E4%B8%80%E7%AF%87.html" title="第一篇">第一篇</a>
-    </li>
-  
     <li class="listing-seperator"><a href="/archive.html">Long long ago</a></li>
   
 
@@ -238,7 +110,7 @@ Using OS-level facilities to set up a means to send tasks to other members of a 
         <footer>
           <div>
             
-            &copy; 2015 ~ 2015 Yuanhang Liu | powered by jekyll | themed by <a href="http://lhzhang.com" title="sext vi">sext vi</a> | fork <a href="https://github.com/waynezhang/blog" title="fork me">me</a>
+            &copy; 2015 ~ 2016 Yuanhang Liu | powered by jekyll | themed by <a href="http://lhzhang.com" title="sext vi">sext vi</a> | fork <a href="https://github.com/waynezhang/blog" title="fork me">me</a>
           </div>
         </footer>
       </div> <!-- main -->

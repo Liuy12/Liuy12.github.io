@@ -15,7 +15,7 @@
     <meta http-equiv="content-type" content="text/html; charset=utf-8" />
     <meta name="author" content="Yuanhang Liu" />
     
-    <title>StochasticvsDeterministic</title>
+    <title>Parallel processing in R</title>
     
     <link rel="shortcut icon" href="/favicon.ico">
     <link href="/atom.xml" rel="alternate" title="Takes time to be twisted, or not" type="application/atom+xml" />
@@ -47,24 +47,48 @@
         <div id="content">
         <article>
   <section class="title">
-    <h2>StochasticvsDeterministic </h2>
+    <h2>Parallel processing in R </h2>
   </section>
   <section class="meta">
   <span class="time">
-    <time datetime="2015-07-08">2015-07-08</time>
+    <time datetime="2015-08-18">2015-08-18</time>
   </span>
   
   <span class="tags">
     
-    <a href="/tags.html#Model thinking" title="Model thinking">#Model thinking</a>
+    <a href="/tags.html#Parallel processing" title="Parallel processing">#Parallel processing</a>
     
   </span>
   
   </section>
   <section class="post">
-  <p>A deterministic model没有stochastic的成分，input和output的关系是完全确定的。比如说linear regression或者non-linear的curve fitting都是属于determininistic model。Stochastic model，包含了randomness，同样的input会导致不同样的output，不同的statistical distribution, MCMC的simulation都属于stochastic process。</p>
+  <h1 id="overview">Overview</h1>
 
-<p>source: <a href="http://www.slideshare.net/sohail40/deterministic-vs-stochastic">http://www.slideshare.net/sohail40/deterministic-vs-stochastic</a></p>
+<p>The CRAN Task View for <a href="https://cran.r-project.org/web/views/HighPerformanceComputing.html">high performance and parallel computing</a></p>
+
+<p>Most of these packages cite or identify one or more of <a href="https://cran.r-project.org/web/packages/snow/index.html">snow</a>, <a href="https://cran.r-project.org/web/packages/Rmpi/index.html">Rmpi</a>, multicore, <a href="https://cran.r-project.org/web/packages/foreach/index.html">foreach</a> as relevant parallelization infratructure. Here we will focus on snow, multicore and parallel (Basically a combination of snow and multicore) packages</p>
+
+<ul>
+  <li>
+    <p>snow: 
+Simple Network of Workstations, parallel processing is made possible Via <code>system("Rscript")</code> or similar to launch a new process on the current machine or a similar machine with an identical R installation. Communication between master and worker processes is usually done via sockets. snow also takes advantage of fork and Rmpi mensioned below.</p>
+  </li>
+  <li>
+    <p>multicore:
+Parallel processing is made possible by forking, which creates a new R process by taking a complete copy of the master process.</p>
+  </li>
+  <li>
+    <p>Rmpi:
+Using OS-level facilities to set up a means to send tasks to other members of a group of machines.</p>
+  </li>
+  <li>
+    <p><code>detectCores</code> is function used to detect number of phisical cores/CPUs in a system. The result is system dependent.</p>
+  </li>
+</ul>
+
+<h1 id="parallelized-replacements-of-apply-functions">Parallelized replacements of apply functions</h1>
+<p>Parallel version of apply function, including <code>parLapply, parSapply, parApply, mclapply</code> ect.</p>
+
 
   </section>
   
