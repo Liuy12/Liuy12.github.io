@@ -4,7 +4,7 @@
  <title>Takes time to be twisted, or not</title>
  <link href="/atom.xml" rel="self"/>
  <link href=""/>
- <updated>2016-04-01T17:44:11-05:00</updated>
+ <updated>2016-04-04T12:08:33-05:00</updated>
  <id></id>
  <author>
    <name>Yuanhang Liu</name>
@@ -61,10 +61,227 @@ Using OS-level facilities to set up a means to send tasks to other members of a 
   &lt;li&gt;
     &lt;p&gt;&lt;code&gt;detectCores&lt;/code&gt; is function used to detect number of phisical cores/CPUs in a system. The result is system dependent.&lt;/p&gt;
   &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Parallel version of apply function, including &lt;code&gt;parLapply, parSapply, parApply, mclapply&lt;/code&gt; ect.&lt;/p&gt;
+  &lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;h1 id=&quot;parallelized-replacements-of-apply-functions&quot;&gt;Parallelized replacements of apply functions&lt;/h1&gt;
-&lt;p&gt;Parallel version of apply function, including &lt;code&gt;parLapply, parSapply, parApply, mclapply&lt;/code&gt; ect.&lt;/p&gt;
+&lt;h1 id=&quot;benchmark-of-lapply-for-loop-foreach-dopar-foreach-do-parlapply-parsapply-in-various-scenarios&quot;&gt;Benchmark of &lt;code&gt;lapply, for loop, foreach dopar, foreach do, parLapply, parSapply&lt;/code&gt; in various scenarios&lt;/h1&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Compare the performance of six methods for simple function &lt;code&gt;sqrt&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;pre&gt;&lt;code&gt;library(doParallel)
+library(doMC)
+library(rbenchmark)
+library(ggplot2)
+
+cl &amp;lt;- makeCluster(4)
+registerDoParallel(cl)
+getDoParWorkers()
+set.seed(1990)
+
+FUN &amp;lt;- function(x) { round(sqrt(x), 4) }
+a &amp;lt;- lapply(1:10, function(i) i)
+
+test1 &amp;lt;- benchmark(&quot;lapply&quot; = lapply(1:10, FUN = FUN), 
+                   &quot;For loop&quot; = for(i in 1:10){ FUN(i)},
+                   &quot;Foreach dopar&quot; = foreach(i = 1:10) %dopar% FUN(i),
+                   &quot;Foreach do&quot; = foreach(i = 1:10) %do% FUN(i),
+                   &quot;parLapply&quot; = parLapply(cl = cl, X = a, fun = FUN),
+                   &quot;parSapply&quot; = parSapply(cl = cl, X = a, FUN = FUN),
+                   columns=c(&#39;test&#39;, &#39;elapsed&#39;, &#39;replications&#39;),
+                   replications = c(100, 200, 500, 1000))
+
+ggplot() +
+  geom_line(aes(x = replications, y = elapsed, colour = test), data = test1)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;img src=&quot;/media/2015-08-18-ParallelprocessinginR/benchmark1.png&quot; alt=&quot;p1&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;In this case, &lt;code&gt;for loop&lt;/code&gt; and &lt;code&gt;lappy&lt;/code&gt; seems to perform the best among other methods.&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Compare the performance of six methods for matrix multiplication&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Element-wise multiplication&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;FUN &amp;lt;- function(x){
+  a &amp;lt;- matrix(rnorm(10000), 100, 100)
+  b &amp;lt;- matrix(rnorm(10000), 100, 100)
+  a * b
+}
+
+test2 &amp;lt;- benchmark(&quot;lapply&quot; = lapply(1:10, FUN = FUN), 
+                   &quot;For loop&quot; = for(i in 1:10){ FUN(i)},
+                   &quot;Foreach dopar&quot; = foreach(i = 1:10) %dopar% FUN(i),
+                   &quot;Foreach do&quot; = foreach(i = 1:10) %do% FUN(i),
+                   &quot;parLapply&quot; = parLapply(cl = cl, X = a, fun = FUN),
+                   &quot;parSapply&quot; = parSapply(cl = cl, X = a, FUN = FUN),
+                   columns=c(&#39;test&#39;, &#39;elapsed&#39;, &#39;replications&#39;),
+                   replications = c(100, 200, 500, 1000))
+
+ggplot() +
+  geom_line(aes(x = replications, y = elapsed, colour = test), data = test2)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;img src=&quot;/media/2015-08-18-ParallelprocessinginR/benchmark2.png&quot; alt=&quot;p2&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;In this case, &lt;code&gt;parLapply&lt;/code&gt; and &lt;code&gt;parSapply&lt;/code&gt; seems to perform the best, but not a significant increase in terms of efficiency since we used 4 cores.&lt;/p&gt;
+
+&lt;p&gt;Inner product&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;FUN &amp;lt;- function(x) {
+  a &amp;lt;- matrix(rnorm(10000), 100, 100)
+  b &amp;lt;- matrix(rnorm(10000), 100, 100)
+  a %*% b
+}
+
+test3 &amp;lt;- benchmark(&quot;lapply&quot; = lapply(1:10, FUN = FUN), 
+                   &quot;For loop&quot; = for(i in 1:10){ FUN(i)},
+                   &quot;Foreach dopar&quot; = foreach(i = 1:10) %dopar% FUN(i),
+                   &quot;Foreach do&quot; = foreach(i = 1:10) %do% FUN(i),
+                   &quot;parLapply&quot; = parLapply(cl = cl, X = a, fun = FUN),
+                   &quot;parSapply&quot; = parSapply(cl = cl, X = a, FUN = FUN),
+                   columns=c(&#39;test&#39;, &#39;elapsed&#39;, &#39;replications&#39;),
+                   replications = c(100, 200, 500, 1000))
+
+ggplot() +
+  geom_line(aes(x = replications, y = elapsed, colour = test), data = test3)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;img src=&quot;/media/2015-08-18-ParallelprocessinginR/benchmark3.png&quot; alt=&quot;p3&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;This time, &lt;code&gt;parLapply&lt;/code&gt; performed the best followed by &lt;code&gt;parSapply&lt;/code&gt;, but still not a significant increase in terms of efficiency since we used 4 cores.&lt;/p&gt;
+
+&lt;p&gt;Inner productor with unbalanced dimensions&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;FUN &amp;lt;- function(x) {
+  a &amp;lt;- matrix(rnorm(10000), 1000, 10)
+  b &amp;lt;- matrix(rnorm(10000), 10, 1000)
+  a %*% b
+}
+
+test4 &amp;lt;- benchmark(&quot;lapply&quot; = lapply(1:10, FUN = FUN), 
+                   &quot;For loop&quot; = for(i in 1:10){ FUN(i)},
+                   &quot;Foreach dopar&quot; = foreach(i = 1:10) %dopar% FUN(i),
+                   &quot;Foreach do&quot; = foreach(i = 1:10) %do% FUN(i),
+                   &quot;parLapply&quot; = parLapply(cl = cl, X = a, fun = FUN),
+                   &quot;parSapply&quot; = parSapply(cl = cl, X = a, FUN = FUN),
+                   columns=c(&#39;test&#39;, &#39;elapsed&#39;, &#39;replications&#39;),
+                   replications = c(10, 20, 50, 100))
+
+ggplot() +
+  geom_line(aes(x = replications, y = elapsed, colour = test), data = test4)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;img src=&quot;/media/2015-08-18-ParallelprocessinginR/benchmark4.png&quot; alt=&quot;p4&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;This time, &lt;code&gt;For loop, Foreach do, lapply&lt;/code&gt; performed much better than the other three methods. &lt;code&gt;parSapply&lt;/code&gt; performed the worst.&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Compare the performance of six methods for fitting generalized linear model&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;pre&gt;&lt;code&gt;FUN &amp;lt;- function(i) {
+  ind &amp;lt;- sample(100, 100, replace=TRUE)
+  result1 &amp;lt;- glm(Species~Sepal.Length, family=binomial(logit), data = iris[ind,])
+  coefficients(result1)
+}
+
+test5 &amp;lt;- benchmark(&quot;lapply&quot; = lapply(1:10, FUN = FUN), 
+                   &quot;For loop&quot; = for(i in 1:10){ FUN(i)},
+                   &quot;Foreach dopar&quot; = foreach(i = 1:10) %dopar% FUN(i),
+                   &quot;Foreach do&quot; = foreach(i = 1:10) %do% FUN(i),
+                   &quot;parLapply&quot; = parLapply(cl = cl, X = a, fun = FUN),
+                   &quot;parSapply&quot; = parSapply(cl = cl, X = a, FUN = FUN),
+                   columns=c(&#39;test&#39;, &#39;elapsed&#39;, &#39;replications&#39;),
+                   replications = c(100, 200, 500, 100))
+
+ggplot() +
+  geom_line(aes(x = replications, y = elapsed, colour = test), data = test5)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;img src=&quot;/media/2015-08-18-ParallelprocessinginR/benchmark5.png&quot; alt=&quot;p5&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;This time, &lt;code&gt;parLapply&lt;/code&gt; and &lt;code&gt;parSapply&lt;/code&gt; performed the best. &lt;code&gt;Foreach do&lt;/code&gt; performed the worst&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;glm&lt;/code&gt; but in a list fashion&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;a &amp;lt;- lapply(1:10, function(i) iris)
+
+FUN &amp;lt;- function(x) {
+  ind &amp;lt;- sample(100, 100, replace=TRUE)
+  result1 &amp;lt;- glm(Species~Sepal.Length, family=binomial(logit), data = x[ind,])
+  coefficients(result1)
+}
+
+test6 &amp;lt;- benchmark(&quot;lapply&quot; = lapply(a, FUN = FUN), 
+                   &quot;For loop&quot; = for(i in 1:10){ FUN(a[[i]])},
+                   &quot;Foreach dopar&quot; = foreach(i = 1:10) %dopar% FUN(a[[i]]),
+                   &quot;Foreach do&quot; = foreach(i = 1:10) %do% FUN(a[[i]]),
+                   &quot;parLapply&quot; = parLapply(cl = cl, X = a, fun = FUN),
+                   &quot;parSapply&quot; = parSapply(cl = cl, X = a, FUN = FUN),
+                   columns=c(&#39;test&#39;, &#39;elapsed&#39;, &#39;replications&#39;),
+                   replications = c(100, 200, 500, 1000))
+
+ggplot() +
+  geom_line(aes(x = replications, y = elapsed, colour = test), data = test6)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;img src=&quot;/media/2015-08-18-ParallelprocessinginR/benchmark6.png&quot; alt=&quot;p6&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Not much difference compared to the previous one. &lt;code&gt;parLapply&lt;/code&gt; and &lt;code&gt;parSapply&lt;/code&gt; performed the best.&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Using &lt;code&gt;doMC&lt;/code&gt; as the backend&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;pre&gt;&lt;code&gt;registerDoMC(cores = 4)
+
+test7 &amp;lt;- benchmark(&quot;lapply&quot; = lapply(a, FUN = FUN), 
+                   &quot;For loop&quot; = for(i in 1:10){ FUN(a[[i]])},
+                   &quot;Foreach dopar&quot; = foreach(i = 1:10) %dopar% FUN(a[[i]]),
+                   &quot;Foreach do&quot; = foreach(i = 1:10) %do% FUN(a[[i]]),
+                   &quot;parLapply&quot; = parLapply(cl = cl, X = a, fun = FUN),
+                   &quot;parSapply&quot; = parSapply(cl = cl, X = a, FUN = FUN),
+                   columns=c(&#39;test&#39;, &#39;elapsed&#39;, &#39;replications&#39;),
+                   replications = c(100, 200, 500, 1000))
+
+ggplot() +
+  geom_line(aes(x = replications, y = elapsed, colour = test), data = test7)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;img src=&quot;/media/2015-08-18-ParallelprocessinginR/benchmark7.png&quot; alt=&quot;p7&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;parSapply&lt;/code&gt; and &lt;code&gt;parLapply&lt;/code&gt; still performed the best. Very interestingly, &lt;code&gt;foreach dopar&lt;/code&gt; performed the worst.&lt;/p&gt;
+
+&lt;h1 id=&quot;to-summerize&quot;&gt;To summerize&lt;/h1&gt;
+&lt;p&gt;Generally, &lt;code&gt;parLapply&lt;/code&gt; and &lt;code&gt;parSapply&lt;/code&gt; perform better than &lt;code&gt;foreach&lt;/code&gt;. However, for all parallel implementation methods, the increase in terms of efficiency is not propotional to the number of cores being used (Theoretical efficiency).&lt;/p&gt;
+
+&lt;h1 id=&quot;session-information&quot;&gt;Session information&lt;/h1&gt;
+
+&lt;pre&gt;&lt;code&gt;R version 3.2.3 (2015-12-10)
+Platform: x86_64-apple-darwin13.4.0 (64-bit)
+Running under: OS X 10.11.1 (El Capitan)
+
+locale:
+[1] en_US.UTF-8/en_US.UTF-8/en_US.UTF-8/C/en_US.UTF-8/en_US.UTF-8
+
+attached base packages:
+[1] parallel  stats     graphics  grDevices utils     datasets  methods   base     
+
+other attached packages:
+[1] ggplot2_2.1.0    rbenchmark_1.0.0 doMC_1.3.4       doParallel_1.0.8 iterators_1.0.7 
+[6] foreach_1.4.2   
+
+loaded via a namespace (and not attached):
+ [1] Rcpp_0.12.3      codetools_0.2-14 digest_0.6.9     grid_3.2.3       plyr_1.8.3      
+ [6] gtable_0.2.0     scales_0.4.0     labeling_0.3     tools_3.2.3      munsell_0.4.3   
+[11] compiler_3.2.3   colorspace_1.2-6
+&lt;/code&gt;&lt;/pre&gt;
 
 </content>
  </entry>
