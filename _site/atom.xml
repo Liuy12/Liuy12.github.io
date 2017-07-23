@@ -4,7 +4,7 @@
  <title>Takes time to be twisted, or not</title>
  <link href="/atom.xml" rel="self"/>
  <link href=""/>
- <updated>2016-04-04T12:20:22-05:00</updated>
+ <updated>2017-07-23T17:26:12-05:00</updated>
  <id></id>
  <author>
    <name>Yuanhang Liu</name>
@@ -317,7 +317,7 @@ loaded via a namespace (and not attached):
 
 &lt;script type=&quot;math/tex; mode=display&quot;&gt;TPM = \frac{FPKM\cdot{10^6}}{\sum FPKM}&lt;/script&gt;
 
-&lt;p&gt;where p stands for the probablity of selecting a fragment from one transcirpt among all read counts. Different from RPKM/FPKM, TPM maesures estimated abundance rather than relative abundance. TPM is generally preferred than RPKM/FPKM&lt;/p&gt;
+&lt;p&gt;where p stands for the probablity of selecting a fragment from one transcirpt among all read counts. TPM is still relative abundance of a transcript and can not be used directly for DE analysis. TPM is generally preferred than RPKM/FPKM. In order to do DE analysis, you still need to do further normalization to comapare differences of estimated abundance between samples.&lt;/p&gt;
 
 &lt;ul&gt;
   &lt;li&gt;DESeq’s sizeFactors&lt;/li&gt;
@@ -407,6 +407,8 @@ loaded via a namespace (and not attached):
 &lt;h2 id=&quot;references&quot;&gt;references&lt;/h2&gt;
 
 &lt;p&gt;Lior Pachter’s talk &lt;a href=&quot;http://www.homolog.us/blogs/blog/2013/11/22/cshl-keynote-talk-lior-pachter/&quot;&gt;http://www.homolog.us/blogs/blog/2013/11/22/cshl-keynote-talk-lior-pachter/&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;The farrago blog &lt;a href=&quot;https://haroldpimentel.wordpress.com/2014/05/08/what-the-fpkm-a-review-rna-seq-expression-units/&quot;&gt;https://haroldpimentel.wordpress.com/2014/05/08/what-the-fpkm-a-review-rna-seq-expression-units/&lt;/a&gt;&lt;/p&gt;
 
 &lt;p&gt;Discussion of RPKM, FPKM and TPM on google groups &lt;a href=&quot;https://groups.google.com/forum/#!topic/rsem-users/GRyJfEOK1BQ&quot;&gt;https://groups.google.com/forum/#!topic/rsem-users/GRyJfEOK1BQ&lt;/a&gt;&lt;/p&gt;
 

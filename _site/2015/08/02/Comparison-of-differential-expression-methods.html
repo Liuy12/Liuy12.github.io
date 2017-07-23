@@ -90,7 +90,7 @@
 
 <script type="math/tex; mode=display">TPM = \frac{FPKM\cdot{10^6}}{\sum FPKM}</script>
 
-<p>where p stands for the probablity of selecting a fragment from one transcirpt among all read counts. Different from RPKM/FPKM, TPM maesures estimated abundance rather than relative abundance. TPM is generally preferred than RPKM/FPKM</p>
+<p>where p stands for the probablity of selecting a fragment from one transcirpt among all read counts. TPM is still relative abundance of a transcript and can not be used directly for DE analysis. TPM is generally preferred than RPKM/FPKM. In order to do DE analysis, you still need to do further normalization to comapare differences of estimated abundance between samples.</p>
 
 <ul>
   <li>DESeq’s sizeFactors</li>
@@ -181,6 +181,8 @@
 
 <p>Lior Pachter’s talk <a href="http://www.homolog.us/blogs/blog/2013/11/22/cshl-keynote-talk-lior-pachter/">http://www.homolog.us/blogs/blog/2013/11/22/cshl-keynote-talk-lior-pachter/</a></p>
 
+<p>The farrago blog <a href="https://haroldpimentel.wordpress.com/2014/05/08/what-the-fpkm-a-review-rna-seq-expression-units/">https://haroldpimentel.wordpress.com/2014/05/08/what-the-fpkm-a-review-rna-seq-expression-units/</a></p>
+
 <p>Discussion of RPKM, FPKM and TPM on google groups <a href="https://groups.google.com/forum/#!topic/rsem-users/GRyJfEOK1BQ">https://groups.google.com/forum/#!topic/rsem-users/GRyJfEOK1BQ</a></p>
 
 
@@ -208,7 +210,7 @@
         <footer>
           <div>
             
-            &copy; 2015 ~ 2016 Yuanhang Liu | powered by jekyll | themed by <a href="http://lhzhang.com" title="sext vi">sext vi</a> | fork <a href="https://github.com/waynezhang/blog" title="fork me">me</a>
+            &copy; 2015 ~ 2017 Yuanhang Liu | powered by jekyll | themed by <a href="http://lhzhang.com" title="sext vi">sext vi</a> | fork <a href="https://github.com/waynezhang/blog" title="fork me">me</a>
           </div>
         </footer>
       </div> <!-- main -->

@@ -29,7 +29,7 @@ Or can also be formulated by:
 
 $$ TPM = \frac{FPKM\cdot{10^6}}{\sum FPKM} $$
 
-where p stands for the probablity of selecting a fragment from one transcirpt among all read counts. Different from RPKM/FPKM, TPM maesures estimated abundance rather than relative abundance. TPM is generally preferred than RPKM/FPKM
+where p stands for the probablity of selecting a fragment from one transcirpt among all read counts. TPM is still relative abundance of a transcript and can not be used directly for DE analysis. TPM is generally preferred than RPKM/FPKM. In order to do DE analysis, you still need to do further normalization to comapare differences of estimated abundance between samples. 
 
 - DESeq's sizeFactors
 
@@ -104,6 +104,8 @@ limma uses a moderated t-statistic to compute P values in which both the standar
 ## references
 
 Lior Pachter's talk <http://www.homolog.us/blogs/blog/2013/11/22/cshl-keynote-talk-lior-pachter/>
+
+The farrago blog <https://haroldpimentel.wordpress.com/2014/05/08/what-the-fpkm-a-review-rna-seq-expression-units/>
 
 Discussion of RPKM, FPKM and TPM on google groups <https://groups.google.com/forum/#!topic/rsem-users/GRyJfEOK1BQ>
 
