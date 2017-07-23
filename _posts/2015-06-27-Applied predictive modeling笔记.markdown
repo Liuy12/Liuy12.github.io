@@ -1,5 +1,5 @@
 ---
-title: 'Applied predictive modeling'
+title: 'Applied predictive modeling笔记'
 comments: true
 layout: post
 tags:

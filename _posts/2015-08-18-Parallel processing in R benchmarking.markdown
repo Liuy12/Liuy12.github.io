@@ -1,5 +1,5 @@
 ---
-title: 'Parallel processing in R'
+title: 'Parallel processing in R benchmarking'
 comments: true
 layout: post
 tags:

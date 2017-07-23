@@ -1,5 +1,5 @@
 ---
-title: 'BioC2015'
+title: 'BioC2015 notes'
 comments: true
 layout: post
 tags:

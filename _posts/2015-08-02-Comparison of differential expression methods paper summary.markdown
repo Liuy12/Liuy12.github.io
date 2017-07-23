@@ -1,5 +1,5 @@
 ---
-title: 'Comparison of differential expression methods for RNA-seq'
+title: 'Comparison of differential expression methods for RNA-seq paper summary'
 comments: true
 layout: post
 tags:

@@ -1,5 +1,5 @@
 ---
-title: 'Time series analysis and its applications'
+title: 'Time series analysis and its applications笔记'
 comments: true
 layout: post
 tags:
