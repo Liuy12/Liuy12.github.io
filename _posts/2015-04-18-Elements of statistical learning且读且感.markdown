@@ -9,7 +9,7 @@ tags:
 liner regression
 ----------------
 
-$$ RSS(\beta) = \sum_{i=1}^n \left(y^i - {x_i^T}\beta\right)^2 $$
+$$ RSS(\beta) = \sum_{i=1}^n \left(y_i - {x_i^T}\beta\right)^2 $$
 
 Model itself rely heavily on the assumption that a linear boundary is appropriate. It has low variance and potentially high bias. 
 
